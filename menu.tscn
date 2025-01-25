@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://g4ilgxpsakue"]
+[gd_scene load_steps=6 format=3 uid="uid://g4ilgxpsakue"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_7llwc"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wyt6p"]
 [ext_resource type="Texture2D" uid="uid://bwxl6ofm8q0sb" path="res://Assets/Title_menu.png" id="2_7bo5t"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="3_0gka8"]
+[ext_resource type="AudioStream" uid="uid://bj44wehse0qxk" path="res://Assets/Sound/Menu Music.wav" id="5_6ypfc"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_wyt6p")
@@ -49,4 +50,8 @@ theme_override_fonts/font = ExtResource("3_0gka8")
 theme_override_font_sizes/font_size = 58
 text = "Comment jouer"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6ypfc")
+
 [connection signal="button_down" from="StartGame" to="." method="_on_start_game_button_down"]
+[connection signal="button_down" from="HowToPlay" to="." method="_on_how_to_play_button_down"]

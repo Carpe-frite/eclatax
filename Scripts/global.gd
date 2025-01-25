@@ -6,6 +6,8 @@ var elephant_won
 var elephant_rounds_won = 0
 var bee_rounds_won = 0
 
+var continue_music_at
+
 ##Consts for probabilities:
 const ExbullesionProb = 15
 const NebulleuseProb = 10
@@ -13,8 +15,6 @@ const BulleDozerProb = 3
 const PiqueNiqueProb = 20
 const AutomapiqueProb = 5
 const RepiqueProb = 1
-
-
 
 ##Elephant parameters
 var elephant_x = 960

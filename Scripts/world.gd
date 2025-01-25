@@ -13,8 +13,6 @@ func _process(delta: float) -> void:
 	if global.is_bubble_selected == true:
 		if Input.is_action_just_released("ui_mouse_LeftClick"):
 			global.destroy_bubble(global.bubble_array[global.currently_selected_bubble_id])
-			global.bubble_array.remove_at(global.currently_selected_bubble_id)
-			global.bubble_id -= 1
 			if global.checkIfAcquired(global.elephant_powerups, "Exbullession"):
 				var border_spacing = 50
 				global.bee_x = randi_range(border_spacing, 1920-border_spacing)

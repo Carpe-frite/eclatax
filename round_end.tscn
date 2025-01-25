@@ -70,6 +70,24 @@ text = "Pouvoirs de l'abeille :"
 
 [node name="ElephantBonus" type="Node2D" parent="."]
 
+[node name="firstBonus" type="Button" parent="ElephantBonus"]
+offset_left = 119.0
+offset_top = 528.0
+offset_right = 439.0
+offset_bottom = 624.0
+
+[node name="secondBonus" type="Button" parent="ElephantBonus"]
+offset_left = 503.0
+offset_top = 528.0
+offset_right = 823.0
+offset_bottom = 624.0
+
+[node name="thirdBonus" type="Button" parent="ElephantBonus"]
+offset_left = 887.0
+offset_top = 528.0
+offset_right = 1207.0
+offset_bottom = 624.0
+
 [node name="BeeBonus" type="Node2D" parent="."]
 
 [node name="NextRoundButton" type="Button" parent="."]
