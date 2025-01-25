@@ -19,9 +19,12 @@ var bee_powerups = ["Expiqueration"] # Powerups acquired by the bee
 var bee_luck = 1
 
 var bubble_id = 0
+var currently_selected_bubble_id
 var bubble_array = []
 var speed_bubble = 200
 var timer = 60
+
+var is_bubble_selected
 
 func checkIfAcquired(tab, search):
 	for i in range(len(tab)):

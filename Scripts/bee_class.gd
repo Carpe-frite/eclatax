@@ -5,7 +5,7 @@ extends Node2D
 @onready var animated_bee = $AnimatedSprite2D
 
 # Global
-var delta_time
+var delta_time = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,16 +35,18 @@ func _process(delta: float) -> void:
 
 # Called whenever there is an input event
 func _input(event):
-	if(bee.position.x < 100):
-		bee.position.x = 100
-	if(bee.position.x > 1820):
-		bee.position.x = 1820
-	if(bee.position.y < 100):
-		bee.position.y = 100
-	if(bee.position.y > 980):
-		bee.position.y = 980
+	var border_spacing = 50
+	if(bee.position.x < border_spacing):
+		bee.position.x = border_spacing
+	if(bee.position.x > 1920 - border_spacing):
+		bee.position.x = 1920 - border_spacing
+	if(bee.position.y < border_spacing):
+		bee.position.y = border_spacing
+	if(bee.position.y > 1080 - border_spacing):
+		bee.position.y = 1080 - border_spacing
 	if event is InputEventMouseMotion:
-		bee.position += event.relative * global.bee_speed * delta_time
+		bee.position.x += event.relative.x * global.bee_speed * delta_time
+		bee.position.y += event.relative.y * global.bee_speed * delta_time
 
 # Setters
 func set_bee_size(new_size):
