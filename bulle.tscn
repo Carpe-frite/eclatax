@@ -1,11 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://6qhjyrd0ufbo"]
+[gd_scene load_steps=4 format=3 uid="uid://6qhjyrd0ufbo"]
 
 [ext_resource type="Texture2D" uid="uid://2svcbwknjll5" path="res://Assets/bulle_01.png" id="1_2ofhr"]
+[ext_resource type="Script" path="res://Scripts/bubble_collision.gd" id="1_p036i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i8f6r"]
+radius = 51.0098
 
 [node name="Bulle" type="Node2D"]
 position = Vector2(116, 692)
+script = ExtResource("1_p036i")
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_2ofhr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+modulate = Color(0, 0, 0, 1)
+shape = SubResource("CircleShape2D_i8f6r")
+
+[connection signal="input_event" from="CharacterBody2D" to="." method="_on_character_body_2d_input_event"]
+[connection signal="mouse_entered" from="CharacterBody2D" to="." method="_on_character_body_2d_mouse_entered"]
