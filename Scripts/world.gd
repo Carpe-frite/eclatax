@@ -4,16 +4,17 @@ extends Node2D
 
 #VARIABLES IMPORTANTES
 var elephant_x = 100
+var speed = 1000
 
 #CLASSES
 @onready var bubble = bubble_class
 
-func move_elephant():
+func move_elephant(delta):
 	if Input.is_action_pressed("ui_kb_MoveElephantRight"):
-		elephant_x = elephant_x + 15
+		elephant_x = elephant_x + speed * delta
 		acteur_elephant.set_global_position(Vector2(elephant_x,0))
 	if Input.is_action_pressed("ui_kb_MoveElephantLeft"):
-		elephant_x = elephant_x - 15
+		elephant_x = elephant_x - speed * delta
 		acteur_elephant.set_global_position(Vector2(elephant_x,0))
 		
 func bubble_action():
@@ -32,6 +33,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	move_elephant()
+	move_elephant(delta)
 	bubble_action()
 	bubbles_go_up()
