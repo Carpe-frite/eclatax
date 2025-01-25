@@ -19,6 +19,8 @@ func _ready() -> void:
 		global.bee_speed *= 5
 	if global.checkIfAcquired(global.bee_powerups, "Flegmapique"):
 		global.speed_bubble *= 0.5
+	if global.checkIfAcquired(global.bee_powerups, "Expiqueration"):
+		global.timer *= 0.9
 	
 	
 

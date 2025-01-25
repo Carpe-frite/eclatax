@@ -15,7 +15,7 @@ var elephant_luck = 1
 # Bee attributes
 var bee_speed = 20 # Default 15
 var bee_size = 0.05 # Default 0.05
-var bee_powerups = ["Compiquation", "Precipiquation", "Frenepique"] # Powerups acquired by the bee
+var bee_powerups = ["Expiqueration"] # Powerups acquired by the bee
 var bee_luck = 1
 
 var bubble_id = 0
