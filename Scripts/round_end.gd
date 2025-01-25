@@ -4,6 +4,8 @@ extends Node2D
 @onready var victory_label = get_node("VictoryLabel")
 @onready var next_round_button = get_node("NextRoundButton")
 
+@onready var elephant_first_bonus = get_node("ElephantBonus/firstBonus")
+
 func _ready() -> void:
 	if global.round_number < 5:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -22,6 +24,10 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	pass
+	
+#func get_elephant_bonus():
+	#match x:
+	
 
 func _on_next_round_button_button_up() -> void:
 	self.get_parent().get_tree().change_scene_to_file("res://world.tscn")

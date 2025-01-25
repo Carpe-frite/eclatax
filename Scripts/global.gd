@@ -14,8 +14,6 @@ const PiqueNiqueProb = 20
 const AutomapiqueProb = 5
 const RepiqueProb = 1
 
-
-
 ##Elephant parameters
 var elephant_x = 960
 var elephant_speed = 500 ##The elephant's speed
