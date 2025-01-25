@@ -2,13 +2,13 @@ class_name bee_class
 extends Node2D
 
 # Bee attributes
-var bee_speed = 15 # Default 15
+var bee_speed = 150 # Default 15
 var bee_size = 0.05 # Default 0.05
 
 @onready var animated_bee = $AnimatedSprite2D
 
 # Global
-var delta_time
+var delta_time = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +26,8 @@ func _process(delta: float) -> void:
 # Called whenever there is an input event
 func _input(event):
 	if event is InputEventMouseMotion:
-		animated_bee.position += event.relative * bee_speed * delta_time
+		self.position.x += event.relative.x * bee_speed * delta_time
+		self.position.y += event.relative.y * bee_speed * delta_time
 
 # Setters
 func set_bee_size(new_size):
