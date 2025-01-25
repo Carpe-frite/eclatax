@@ -16,6 +16,8 @@ func bubbles_go_up(delta):
 		x.bubble_instance.set_global_position(Vector2(x.bubble_properties["x"],x.bubble_properties["y"]))
 		if x.bubble_properties["y"] < 100 and x.bubble_properties["is_alive"] == true:
 			global.destroy_bubble(x)
+			global.elephant_won = true
+			self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
 			
 
 func _ready() -> void:

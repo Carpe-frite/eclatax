@@ -1,6 +1,10 @@
 extends Node
 
 var round_number = 1 ##The current round
+var elephant_won
+
+var elephant_rounds_won = 0
+var bee_rounds_won = 0
 
 ##Elephant parameters
 var elephant_x = 960
@@ -40,5 +44,8 @@ func getPosition(tab, search):
 	
 func destroy_bubble(x):
 	x.bubble_properties["is_alive"] = false
+	if global.currently_selected_bubble_id != null:
+		if global.bubble_array[global.currently_selected_bubble_id].bubble_properties["is_alive"] == false:
+					global.bubble_array[global.currently_selected_bubble_id].bubble_instance.visible = false
 	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 		global.bee_speed *= 0.95

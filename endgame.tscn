@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqyal6oyalbtd"]
+
+[ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_5xcvu"]
+[ext_resource type="Script" path="res://Scripts/endgame.gd" id="1_8a8mc"]
+[ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="2_ko4f2"]
+
+[node name="RoundEnd" type="Node2D"]
+script = ExtResource("1_8a8mc")
+metadata/_edit_vertical_guides_ = [608.0, 1024.0, 888.0]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1025, 312)
+texture = ExtResource("1_5xcvu")
+
+[node name="GameEndTitle" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 536.0
+offset_top = 112.0
+offset_right = 1355.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 128
+text = "Fin du jeu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictoryLabel" type="Label" parent="."]
+offset_left = 575.0
+offset_top = 256.0
+offset_right = 1291.0
+offset_bottom = 321.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 58
+text = "L'abeille remporte le round !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(304, -88)
+invert_enabled = true
+invert_border = 10.0
+polygon = PackedVector2Array(104, 448, 1216, 448, 1216, 984, 104, 984)
