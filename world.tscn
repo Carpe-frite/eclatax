@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://brafcn0mjuhsh"]
+[gd_scene load_steps=6 format=3 uid="uid://brafcn0mjuhsh"]
 
 [ext_resource type="Texture2D" uid="uid://dsu7mlrx8le13" path="res://Assets/temporaire/sol.png" id="1_5kprh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_sx4co"]
 [ext_resource type="Texture2D" uid="uid://bdbbnr4c5n58b" path="res://Assets/elephant_01.png" id="3_5kkhd"]
+[ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="3_jc4hw"]
 [ext_resource type="Script" path="res://elephant.gd" id="3_o7bdq"]
 
 [node name="World" type="Node2D"]
@@ -22,6 +23,10 @@ offset_bottom = 1080.0
 position = Vector2(952, 780)
 scale = Vector2(3, 1)
 texture = ExtResource("1_5kprh")
+
+[node name="Background" type="Sprite2D" parent="Monde/fixes"]
+position = Vector2(976, 158)
+texture = ExtResource("3_jc4hw")
 
 [node name="acteurs" type="Node2D" parent="Monde"]
 
