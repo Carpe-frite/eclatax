@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu3o4as578nxd"
+path="res://.godot/imported/Bubble_Pop_SFX_5.wav-d1545d00e59bfb5d46a2b4ce8328fdf1.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/bubble pop/Bubble_Pop_SFX_5.wav"
+dest_files=["res://.godot/imported/Bubble_Pop_SFX_5.wav-d1545d00e59bfb5d46a2b4ce8328fdf1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

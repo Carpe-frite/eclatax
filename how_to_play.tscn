@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ffkf1yjlreo"]
+[gd_scene load_steps=9 format=3 uid="uid://d2vxssvol0vgu"]
 
 [ext_resource type="Texture2D" uid="uid://dgae7g6lbbct" path="res://background.png" id="1_83inv"]
+[ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_rp3iq"]
 [ext_resource type="FontFile" uid="uid://m7ftplnf7egv" path="res://Kindergarten Cam.ttf" id="2_ersc0"]
 [ext_resource type="Texture2D" uid="uid://bwfs7jqcxeucg" path="res://Assets/page_papier.png" id="3_f77k1"]
 [ext_resource type="FontFile" uid="uid://d3qb1r5lbahk3" path="res://KindergartenCamBold.ttf" id="3_kbdxj"]
 [ext_resource type="Texture2D" uid="uid://c55rcaopt20hh" path="res://Assets/back_arrow.png" id="5_g18nq"]
 [ext_resource type="Script" path="res://button_back_to_menu.gd" id="6_71fhn"]
+[ext_resource type="AudioStream" uid="uid://bj44wehse0qxk" path="res://Assets/Sound/Menu Music.wav" id="8_af5da"]
 
 [node name="HowToPlay" type="Node2D"]
+script = ExtResource("1_rp3iq")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(960, 560)
@@ -73,4 +76,7 @@ icon = ExtResource("5_g18nq")
 expand_icon = true
 script = ExtResource("6_71fhn")
 
-[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_af5da")
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
