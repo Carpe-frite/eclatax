@@ -42,5 +42,5 @@ texture = ExtResource("3_5kkhd")
 
 [node name="abeille" type="Sprite2D" parent="Monde/acteurs"]
 
-[node name="bulles_generator" type="Node2D" parent="Monde/acteurs"]
+[node name="bubble_generator" type="Node2D" parent="Monde/acteurs"]
 script = ExtResource("5_3vg7t")
