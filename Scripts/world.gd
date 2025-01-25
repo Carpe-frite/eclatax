@@ -11,15 +11,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time_left_label.text = str(int(timer.get_time_left()))
 	if global.is_bubble_selected == true:
-		if Input.is_action_just_released("ui_mouse_RightClick"):
+		if Input.is_action_just_released("ui_mouse_LeftClick"):
 			global.destroy_bubble(global.bubble_array[global.currently_selected_bubble_id])
-			#if global.bubble_array[global.currently_selected_bubble_id].bubble_properties["is_alive"] == false:
-				#global.bubble_array[global.currently_selected_bubble_id].bubble_instance.visible = false
-			#global.bubble_array.remove_at(global.currently_selected_bubble_id)
-			#global.bubble_id -= 1
-	#for x in range(0,global.bubble_array.size()):
-		#if global.bubble_array[x].bubble_properties["is_alive"] == false:
-			#global.bubble_array[x].bubble_instance.visible = false
+			global.bubble_array.remove_at(global.currently_selected_bubble_id)
+			global.bubble_id -= 1
+			if global.checkIfAcquired(global.elephant_powerups, "Exbullession"):
+				var border_spacing = 50
+				global.bee_x = randi_range(border_spacing, 1920-border_spacing)
+				global.bee_y = randi_range(border_spacing, 1080-border_spacing)
+
 	
 func _on_round_timer_timeout() -> void:
 	self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")

@@ -6,13 +6,23 @@ var elephant_won
 var elephant_rounds_won = 0
 var bee_rounds_won = 0
 
+##Consts for probabilities:
+const ExbullesionProb = 15
+const NebulleuseProb = 10
+const BulleDozerProb = 3
+const PiqueNiqueProb = 20
+const AutomapiqueProb = 5
+const RepiqueProb = 1
+
+
+
 ##Elephant parameters
 var elephant_x = 960
 var elephant_speed = 500 ##The elephant's speed
 var elephant_bubble_count = 1 ##The number of bubbles shot per space press
 var elephant_angle = 90 ##The elephant's trunk angle
 var elephant_angle_range = 0 ##The max angle at which the elephant's trunk can rotate
-var elephant_powerups = ["Bulln-Out"] ##Lists the powerups acquired by the elephant
+var elephant_powerups = ["Exbullession"] ##Lists the powerups acquired by the elephant
 var elephant_luck = 1
 
 
@@ -21,6 +31,8 @@ var bee_speed = 20 # Default 15
 var bee_size = 0.05 # Default 0.05
 var bee_powerups = ["Compiquation"] # Powerups acquired by the bee
 var bee_luck = 1
+var bee_x = 960
+var bee_y = 360
 
 var bubble_id = 0
 var currently_selected_bubble_id
@@ -49,3 +61,9 @@ func destroy_bubble(x):
 					global.bubble_array[global.currently_selected_bubble_id].bubble_instance.visible = false
 	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 		global.bee_speed *= 0.95
+
+func probability(min, mod):
+	var number = randi_range(0, 100)
+	if number < min * mod:
+		return true
+	return false
