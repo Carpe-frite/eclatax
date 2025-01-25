@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://g4ilgxpsakue"]
+
+[ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_7llwc"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wyt6p"]
+[ext_resource type="Texture2D" uid="uid://bwxl6ofm8q0sb" path="res://Assets/Title_menu.png" id="2_7bo5t"]
+[ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="3_0gka8"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_wyt6p")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1024, 311)
+texture = ExtResource("1_7llwc")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(976, 307.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_7bo5t")
+
+[node name="StartGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 760.0
+offset_top = 635.2
+offset_right = 1186.0
+offset_bottom = 715.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0gka8")
+theme_override_font_sizes/font_size = 58
+text = "Nouvelle partie"
+
+[node name="HowToPlay" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 760.0
+offset_top = 736.0
+offset_right = 1186.0
+offset_bottom = 816.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0gka8")
+theme_override_font_sizes/font_size = 58
+text = "Comment jouer"
+
+[connection signal="button_down" from="StartGame" to="." method="_on_start_game_button_down"]
