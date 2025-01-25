@@ -26,6 +26,7 @@ func bubbles_go_up():
 	for x in global.bubble_array:
 		print(x.bubble_properties)
 		x.bubble_properties["y"] = x.bubble_properties["y"] + 15
+		x.bubble_instance.set_global_position(Vector2(2))
 
 func _ready() -> void:
 	pass # Replace with function body.
