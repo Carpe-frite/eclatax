@@ -19,4 +19,4 @@ func _on_character_body_2d_area_entered(area: Area2D) -> void:
 
 func _on_character_body_2d_area_exited(area: Area2D) -> void:
 	global.is_bubble_selected = false
-	global.currently_selected_bubble_id = 0
+	global.currently_selected_bubble_id = null
