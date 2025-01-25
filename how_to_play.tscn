@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://4ffkf1yjlreo"]
+
+[ext_resource type="Texture2D" uid="uid://dgae7g6lbbct" path="res://background.png" id="1_83inv"]
+[ext_resource type="FontFile" uid="uid://m7ftplnf7egv" path="res://Kindergarten Cam.ttf" id="2_ersc0"]
+[ext_resource type="Texture2D" uid="uid://bwfs7jqcxeucg" path="res://Assets/page_papier.png" id="3_f77k1"]
+[ext_resource type="FontFile" uid="uid://d3qb1r5lbahk3" path="res://KindergartenCamBold.ttf" id="3_kbdxj"]
+[ext_resource type="Texture2D" uid="uid://c55rcaopt20hh" path="res://Assets/back_arrow.png" id="5_g18nq"]
+[ext_resource type="Script" path="res://button_back_to_menu.gd" id="6_71fhn"]
+
+[node name="HowToPlay" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 560)
+texture = ExtResource("1_83inv")
+
+[node name="Titre" type="Label" parent="."]
+offset_left = 667.0
+offset_top = 52.0
+offset_right = 1253.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ersc0")
+theme_override_font_sizes/font_size = 64
+text = "Comment jouer ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = 375.0
+offset_top = 214.0
+offset_right = 1530.0
+offset_bottom = 1053.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_ersc0")
+theme_override_fonts/bold_font = ExtResource("3_kbdxj")
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 8
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
+bbcode_enabled = true
+text = "Eclatax est un jeu PVP à 2 joueurs. 
+
+[b]Controles des personnages :[/b]
+
+[b]Joueur elephant[/b] : Utilisez les touches directionnelles < et > pour vous deplacer.
+
+Appuyez sur la [b]barre espace[/b] pour envoyer des bulles.
+
+[b]Joueur abeille[/b] : Dirigez-vous avec la souris et utilisez le clic gauche pour interagir avec les bulles et les faire exploser.
+
+[b]Déroulement de la partie :[/b]
+
+[b]Rounds[/b] : Une partie se compose de 5 rounds de 40 secondes.
+
+Condition de victoire : Si une bulle atteint le haut de l’ecran, l’elephant gagne, si on arrive a la fin du 5e round, l’abeille gagne.
+
+Choix de bonus : A la fin de chaque round, chaque joueur peut choisir un bonus pour les rounds suivants."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(944, 605)
+rotation = 4.71239
+scale = Vector2(0.421371, 0.421371)
+texture = ExtResource("3_f77k1")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1822.0
+offset_top = 46.0
+offset_right = 1922.0
+offset_bottom = 146.0
+icon = ExtResource("5_g18nq")
+expand_icon = true
+script = ExtResource("6_71fhn")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
