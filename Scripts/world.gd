@@ -25,6 +25,7 @@ func bubble_action():
 func bubbles_go_up():
 	for x in global.bubble_array:
 		print(x.bubble_properties)
+		x.bubble_properties["y"] = x.bubble_properties["y"] + 15
 
 func _ready() -> void:
 	pass # Replace with function body.
