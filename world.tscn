@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brafcn0mjuhsh"]
+[gd_scene load_steps=19 format=3 uid="uid://brafcn0mjuhsh"]
 
 [ext_resource type="Texture2D" uid="uid://dsu7mlrx8le13" path="res://Assets/temporaire/sol.png" id="1_5kprh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_sx4co"]
@@ -9,8 +9,36 @@
 [ext_resource type="Script" path="res://Scripts/bubble_class.gd" id="5_3vg7t"]
 [ext_resource type="Script" path="res://Scripts/bee_class.gd" id="5_jn1vc"]
 [ext_resource type="Texture2D" uid="uid://cb8gs6gcrrw6t" path="res://Assets/bee_01.png" id="5_mllrp"]
+[ext_resource type="Texture2D" uid="uid://b0toqx06c6l56" path="res://Assets/elephant_02.png" id="7_3n6mk"]
 [ext_resource type="Texture2D" uid="uid://c581u0sl80unq" path="res://Assets/bee_02.png" id="9_tut3q"]
 [ext_resource type="Script" path="res://round_timer.gd" id="11_j1o0a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0wpp"]
+atlas = ExtResource("3_5kkhd")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltcxi"]
+atlas = ExtResource("7_3n6mk")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2brs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0wpp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltcxi")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oc1d7"]
 atlas = ExtResource("5_mllrp")
@@ -75,11 +103,12 @@ texture = ExtResource("3_jc4hw")
 position = Vector2(960, 0)
 script = ExtResource("3_o7bdq")
 
-[node name="sprite_elephant" type="Sprite2D" parent="Monde/acteurs/elephant"]
-texture_filter = 1
-position = Vector2(0, 840)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Monde/acteurs/elephant"]
+position = Vector2(1, 840)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_5kkhd")
+sprite_frames = SubResource("SpriteFrames_q2brs")
+animation = &"shoot"
+frame_progress = 0.415656
 
 [node name="bee" type="Node2D" parent="Monde/acteurs"]
 position = Vector2(960, 360)

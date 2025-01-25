@@ -3,9 +3,11 @@ extends Node
 
 
 @onready var acteur_elephant = self
-@onready var sprite_elephant = get_node("sprite_elephant")
+@onready var sprite_elephant = $AnimatedSprite2D
 
 func _ready() -> void:
+	
+	# On peux le passer dans une fonction
 	if global.checkIfAcquired(global.elephant_powerups, "Surpobullation"):
 		global.elephant_bubble_count += 1
 	if global.checkIfAcquired(global.elephant_powerups, "Probullession"):
@@ -16,7 +18,6 @@ func _ready() -> void:
 		global.timer *= 1.5
 	if global.checkIfAcquired(global.elephant_powerups, "Probabullite"):
 		global.elephant_luck *= 2
-	
 
 func move_elephant(delta):
 	if Input.is_action_pressed("ui_kb_MoveElephantRight"):
@@ -28,5 +29,12 @@ func move_elephant(delta):
 			global.elephant_x -= global.elephant_speed * delta
 			acteur_elephant.set_global_position(Vector2(global.elephant_x,0))
 
+func shoot_bubble_animation():
+	if Input.is_action_pressed("ui_kb_Space"):
+		sprite_elephant.play("shoot")
+	else: 
+		sprite_elephant.play("default")
+
 func _process(delta: float) -> void:
 	move_elephant(delta)
+	shoot_bubble_animation()
