@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2vxssvol0vgu"]
+[gd_scene load_steps=9 format=3 uid="uid://4ffkf1yjlreo"]
 
 [ext_resource type="Texture2D" uid="uid://dgae7g6lbbct" path="res://background.png" id="1_83inv"]
 [ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_rp3iq"]
@@ -11,6 +11,9 @@
 
 [node name="HowToPlay" type="Node2D"]
 script = ExtResource("1_rp3iq")
+
+[node name="AudioButtonBackSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1822, 46)
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(960, 560)
@@ -80,3 +83,4 @@ script = ExtResource("6_71fhn")
 stream = ExtResource("8_af5da")
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
