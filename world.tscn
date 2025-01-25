@@ -59,7 +59,13 @@ texture = ExtResource("3_5kkhd")
 [node name="bee" type="Node2D" parent="Monde/acteurs"]
 script = ExtResource("5_jn1vc")
 
-[node name="sprite_bee" type="Sprite2D" parent="Monde/acteurs/bee"]
+[node name="Area2D" type="Area2D" parent="Monde/acteurs/bee"]
+monitoring = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Monde/acteurs/bee/Area2D"]
+polygon = PackedVector2Array(-120, -32, -32, -112, 88, -88, 120, 40, 16, 128, -96, 72)
+
+[node name="sprite_bee" type="Sprite2D" parent="Monde/acteurs/bee/Area2D/CollisionPolygon2D"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_mllrp")
 

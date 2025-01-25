@@ -25,4 +25,3 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_2ofhr")
 
 [connection signal="area_entered" from="CharacterBody2D" to="." method="_on_character_body_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D" to="." method="_on_character_body_2d_area_exited"]
