@@ -36,17 +36,19 @@ func _process(delta: float) -> void:
 # Called whenever there is an input event
 func _input(event):
 	var border_spacing = 50
-	if(bee.position.x < border_spacing):
-		bee.position.x = border_spacing
-	if(bee.position.x > 1920 - border_spacing):
-		bee.position.x = 1920 - border_spacing
-	if(bee.position.y < border_spacing):
-		bee.position.y = border_spacing
-	if(bee.position.y > 1080 - border_spacing):
-		bee.position.y = 1080 - border_spacing
+	bee.position.x = global.bee_x
+	bee.position.y = global.bee_y
+	if(global.bee_x < border_spacing):
+		global.bee_x = border_spacing
+	if(global.bee_x > 1920 - border_spacing):
+		global.bee_x = 1920 - border_spacing
+	if(global.bee_y < border_spacing):
+		global.bee_y = border_spacing
+	if(global.bee_y > 1080 - border_spacing):
+		global.bee_y = 1080 - border_spacing
 	if event is InputEventMouseMotion:
-		bee.position.x += event.relative.x * global.bee_speed * delta_time
-		bee.position.y += event.relative.y * global.bee_speed * delta_time
+		global.bee_x += event.relative.x * global.bee_speed * delta_time
+		global.bee_y += event.relative.y * global.bee_speed * delta_time
 
 # Setters
 func set_bee_size(new_size):
