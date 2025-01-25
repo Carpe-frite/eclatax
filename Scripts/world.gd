@@ -19,8 +19,12 @@ func move_elephant():
 func bubble_action():
 	if Input.is_action_just_released("ui_kb_Space"):
 		var new_bubble = bubble.new()
-		self.add_child(global.bubble_array[global.bubble_id])
+		self.add_child(global.bubble_array[global.bubble_id].bubble_instance)
 		global.bubble_id += 1
+		
+func bubbles_go_up():
+	for x in global.bubble_array:
+		print(x.bubble_properties)
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -28,3 +32,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move_elephant()
 	bubble_action()
+	bubbles_go_up()
