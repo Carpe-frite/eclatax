@@ -15,7 +15,7 @@ var elephant_luck = 1
 # Bee attributes
 var bee_speed = 20 # Default 15
 var bee_size = 0.05 # Default 0.05
-var bee_powerups = ["Expiqueration"] # Powerups acquired by the bee
+var bee_powerups = ["Compiquation"] # Powerups acquired by the bee
 var bee_luck = 1
 
 var bubble_id = 0
@@ -31,3 +31,14 @@ func checkIfAcquired(tab, search):
 		if tab[i] == search:
 			return true
 	return false
+	
+func getPosition(tab, search):
+	for i in range(len(tab)):
+		if tab[i] == search:
+			return i
+	return -1
+	
+func destroy_bubble(x):
+	x.bubble_properties["is_alive"] = false
+	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
+		global.bee_speed *= 0.95

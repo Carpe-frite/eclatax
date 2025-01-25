@@ -15,13 +15,8 @@ func bubbles_go_up(delta):
 		x.bubble_properties["y"] = x.bubble_properties["y"] - global.speed_bubble * delta
 		x.bubble_instance.set_global_position(Vector2(x.bubble_properties["x"],x.bubble_properties["y"]))
 		if x.bubble_properties["y"] < 100 and x.bubble_properties["is_alive"] == true:
-			destroy_bubble(x)
+			global.destroy_bubble(x)
 			
-
-func destroy_bubble(x):
-	x.bubble_properties["is_alive"] = false
-	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
-		global.bee_speed *= 0.95
 
 func _ready() -> void:
 	pass
