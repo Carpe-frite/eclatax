@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brafcn0mjuhsh"]
+[gd_scene load_steps=14 format=3 uid="uid://brafcn0mjuhsh"]
 
 [ext_resource type="Texture2D" uid="uid://dsu7mlrx8le13" path="res://Assets/temporaire/sol.png" id="1_5kprh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_sx4co"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Scripts/bee_class.gd" id="5_jn1vc"]
 [ext_resource type="Texture2D" uid="uid://cb8gs6gcrrw6t" path="res://Assets/bee_01.png" id="5_mllrp"]
 [ext_resource type="Texture2D" uid="uid://c581u0sl80unq" path="res://Assets/bee_02.png" id="9_tut3q"]
-[ext_resource type="Script" path="res://round_timer.gd" id="11_j1o0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oc1d7"]
 atlas = ExtResource("5_mllrp")
@@ -61,8 +60,8 @@ vertical_alignment = 1
 [node name="fixes" type="Node2D" parent="Monde"]
 
 [node name="Sol" type="Sprite2D" parent="Monde/fixes"]
-position = Vector2(978, 780)
-scale = Vector2(2.565, 1)
+position = Vector2(960, 780)
+scale = Vector2(2.4, 1)
 texture = ExtResource("1_5kprh")
 
 [node name="Background" type="Sprite2D" parent="Monde/fixes"]
@@ -72,17 +71,16 @@ texture = ExtResource("3_jc4hw")
 [node name="acteurs" type="Node2D" parent="Monde"]
 
 [node name="elephant" type="Node2D" parent="Monde/acteurs"]
-position = Vector2(960, 0)
+position = Vector2(880, 0)
 script = ExtResource("3_o7bdq")
 
 [node name="sprite_elephant" type="Sprite2D" parent="Monde/acteurs/elephant"]
 texture_filter = 1
-position = Vector2(0, 840)
+position = Vector2(100, 840)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_5kkhd")
 
 [node name="bee" type="Node2D" parent="Monde/acteurs"]
-position = Vector2(960, 360)
 script = ExtResource("5_jn1vc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Monde/acteurs/bee"]
@@ -96,6 +94,5 @@ script = ExtResource("5_3vg7t")
 [node name="RoundTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
-script = ExtResource("11_j1o0a")
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

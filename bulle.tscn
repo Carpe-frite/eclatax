@@ -4,6 +4,7 @@
 
 [node name="Bulle" type="Node2D"]
 position = Vector2(116, 692)
+metadata/angle = 0.0
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
