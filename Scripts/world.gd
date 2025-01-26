@@ -35,7 +35,19 @@ func _ready() -> void:
 	##Scene and bubbles init
 	global.bubble_array = []
 	global.speed_bubble = 200
+	global.bubble_size = 1
 	global.currently_selected_bubble_ids = []
+	
+	if global.checkIfAcquired(global.bee_powerups, "Pique-Bulle"):
+		global.bubble_size *= 1.5
+	if global.checkIfAcquired(global.elephant_powerups, "Minibulle"):
+		global.bubble_size *= 0.5
+	if global.checkIfAcquired(global.bee_powerups, "Flegmapique"):
+		global.speed_bubble *= 0.5
+	if global.checkIfAcquired(global.elephant_powerups, "Probullession"):
+		global.speed_bubble *= 1.5
+	if global.checkIfAcquired(global.elephant_powerups, "Ambullence"):
+		global.speed_bubble *= 0.2
 	
 
 func _process(delta: float) -> void:

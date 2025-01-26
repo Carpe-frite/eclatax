@@ -51,28 +51,6 @@ var elephantShootSounds: Array[AudioStream] = [
 	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_11.wav")
 ]
 
-#var boiteAMusique = {
-	#"accord1": [
-		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-	#],
-	#"accord2": [
-		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/F1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/A1_musicbox_soft.wav"),
-	#],
-	#"accord3": [
-		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/B1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
-	#],
-	#"accord4": [
-		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
-		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-	#],
-#}
 
 func get_full_path(folderName, file):
 	return "res://Assets/Sound/" + folderName + "/" + file
@@ -192,7 +170,7 @@ var currently_selected_bubble_id
 var currently_selected_bubble_ids = []
 var bubble_array = []
 var speed_bubble = 200
-var bubble_size = 0.05
+var bubble_size
 var timer
 
 var is_bubble_selected
@@ -218,6 +196,8 @@ func destroy_bubble(x):
 				global.bubble_array[y].bubble_instance.visible = false"""
 	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 		global.bee_speed /= 1.05
+	if global.checkIfAcquired(global.elephant_powerups, "Ambullence"):
+		global.speed_bubble *= 1.01
 
 func probability(min, mod):
 	var number = randi_range(0, 100)
