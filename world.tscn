@@ -130,7 +130,7 @@ scale = Vector2(10, 10)
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Monde/acteurs/bee/AnimatedSprite2D/Area2D"]
-polygon = PackedVector2Array(-88, 24, -56, -24, 56, -24, 96, 40, 32, 80, -40, 80)
+polygon = PackedVector2Array(-76, 36, -68, -7, -19, -32, 56, -24, 86, 37, 49, 73, -43, 73)
 
 [node name="bubble_generator" type="Node2D" parent="Monde/acteurs"]
 script = ExtResource("5_3vg7t")
