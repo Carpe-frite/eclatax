@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bir6eb7ippktr"]
+[gd_scene load_steps=6 format=3 uid="uid://bir6eb7ippktr"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_5xcvu"]
 [ext_resource type="Script" path="res://Scripts/round_end.gd" id="1_frqbu"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="2_ko4f2"]
 [ext_resource type="AudioStream" uid="uid://da4yj1ipf57rr" path="res://Assets/Sound/Game Music.wav" id="4_ba165"]
+[ext_resource type="AudioStream" uid="uid://fnhdm7bpd1f6" path="res://Assets/Sound/Round_Start_kazoo.wav" id="5_bnfro"]
 
 [node name="RoundEnd" type="Node2D"]
 script = ExtResource("1_frqbu")
@@ -103,5 +104,8 @@ text = "Commencer le round 2"
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ba165")
+
+[node name="RoundEndSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bnfro")
 
 [connection signal="button_up" from="NextRoundButton" to="." method="_on_next_round_button_button_up"]

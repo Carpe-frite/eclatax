@@ -3,6 +3,8 @@ extends Node2D
 @onready var main_menu_music = get_node("AudioStreamPlayer2D")
 
 @onready var audio_button_hover = get_node("AudioButtonBackSound")
+@onready var audio_yay = get_node("YAYSound")
+
 
 func _ready() -> void:
 	var continue_music_at_corrected = global.continue_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
@@ -11,6 +13,8 @@ func _ready() -> void:
 	
 	audio_button_hover.stream = global.buttonClickSounds[randi() % 3]
 	audio_button_hover.play()
+	
+	audio_yay.play()
 	
 func _on_button_button_up() -> void:
 	audio_button_hover.stream = global.buttonClickSounds[randi() % 3]

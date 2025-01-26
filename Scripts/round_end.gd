@@ -7,9 +7,12 @@ extends Node2D
 @onready var elephant_first_bonus = get_node("ElephantBonus/firstBonus")
 
 @onready var levelMusic = get_node("LevelMusicPlayer")
+@onready var roundEndSound = get_node("RoundEndSound")
+
 
 
 func _ready() -> void:
+	roundEndSound.play()
 	levelMusic.play(global.continue_level_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency())
 	if global.round_number < 5:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

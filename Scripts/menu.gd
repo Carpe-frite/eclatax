@@ -4,11 +4,16 @@ extends Node2D
 
 @onready var audio_button_hover = get_node("AudioBoutonHover")
 
+@onready var eclataxSound = get_node("ECLATAXSound")
+
 func _ready() -> void:
+	eclataxSound.play()
+	
 	main_menu_music.volume_db = global.menu_music_volume_attenuation
 	if global.continue_music_at != 0.0:
 		audio_button_hover.stream = global.buttonClickSounds[randi() % 3]
 		audio_button_hover.play()
+	await get_tree().create_timer(2.70).timeout
 	main_menu_music.play(global.continue_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency())
 	
 func _process(delta: float) -> void:

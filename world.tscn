@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brafcn0mjuhsh"]
+[gd_scene load_steps=21 format=3 uid="uid://brafcn0mjuhsh"]
 
 [ext_resource type="Texture2D" uid="uid://dsu7mlrx8le13" path="res://Assets/temporaire/sol.png" id="1_5kprh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_sx4co"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c581u0sl80unq" path="res://Assets/bee_02.png" id="9_tut3q"]
 [ext_resource type="Script" path="res://round_timer.gd" id="11_j1o0a"]
 [ext_resource type="AudioStream" uid="uid://da4yj1ipf57rr" path="res://Assets/Sound/Game Music.wav" id="13_x3oas"]
+[ext_resource type="AudioStream" uid="uid://cgbbf88iwi4ns" path="res://Assets/Sound/CESTPARTI.wav" id="14_mgb3q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0wpp"]
 atlas = ExtResource("3_5kkhd")
@@ -135,6 +136,9 @@ script = ExtResource("5_3vg7t")
 [node name="BubblePopSoundPlayer" type="AudioStreamPlayer2D" parent="Monde/acteurs/bubble_generator"]
 volume_db = 19.179
 
+[node name="NoteLayerBubblePop" type="AudioStreamPlayer2D" parent="Monde/acteurs/bubble_generator"]
+volume_db = 8.954
+
 [node name="RoundTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
@@ -144,5 +148,9 @@ script = ExtResource("11_j1o0a")
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_x3oas")
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_mgb3q")
+volume_db = 3.838
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

@@ -51,6 +51,59 @@ var elephantShootSounds: Array[AudioStream] = [
 	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_11.wav")
 ]
 
+var accord1 : Array[AudioStream] = [
+	preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+	preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+	preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+]
+
+#var boiteAMusique = {
+	#"accord1": [
+		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#],
+	#"accord2": [
+		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/F1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/A1_musicbox_soft.wav"),
+	#],
+	#"accord3": [
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/B1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+	#],
+	#"accord4": [
+		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#],
+#}
+
+func get_chord_progression(folderName):
+	var dir = DirAccess.open("res://Assets/Sound/" + folderName)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("Found directory: " + file_name)
+			else:
+				print("Found file: " + file_name)
+			file_name = dir.get_next()
+
+#var boiteAMusique: Array[AudioStream] = [
+	#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/F1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/A1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/B1_musicbox_soft.wav"),
+	#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+#]
+
 var menu_music_volume_attenuation  =-3
 
 ##Consts for probabilities:
