@@ -12,6 +12,10 @@ func _ready() -> void:
 	
 	global.bee_powerups = []
 	global.elephant_powerups = []
+	global.bubble_array = []
+	global.bubble_id = 0
+	global.elephant_won = false
+	global.round_number = 0
 	
 	main_menu_music.volume_db = global.menu_music_volume_attenuation
 	if global.continue_music_at != 0.0:

@@ -154,3 +154,4 @@ func _on_third_bonus_pressed() -> void:
 	elephant_second_bonus.visible = false
 	elephant_first_bonus.visible = false
 	global.bee_powerups.append(selected_bee_array[2]["name"])
+ 
