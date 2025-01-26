@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/bubble_collision.gd" id="1_p036i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8f6r"]
-radius = 51.0098
+radius = 41.3038
 
 [node name="Bulle" type="Node2D"]
 position = Vector2(116, 692)

@@ -8,16 +8,20 @@ extends Node2D
 @onready var elephantSoundPlayer = get_node("ElephantShootSoundPlayer")
 
 func _ready() -> void:
+	##Elephant properties init
+	global.elephant_x = 960
+	global.elephant_speed = 500 ##The elephant's speed
+	global.elephant_bubble_count = 1 ##The number of bubbles shot per space press
+	global.elephant_angle = 90 ##The elephant's trunk angle
+	global.elephant_angle_range = 0 ##The max angle at which the elephant's trunk can rotate
+	global.elephant_luck = 1
+	
 	
 	# On peux le passer dans une fonction
 	if global.checkIfAcquired(global.elephant_powerups, "Surpobullation"):
 		global.elephant_bubble_count += 1
-	if global.checkIfAcquired(global.elephant_powerups, "Probullession"):
-		global.speed_bubble *= 1.33
 	if global.checkIfAcquired(global.elephant_powerups, "Deambulle"):
 		global.elephant_speed *= 1.5
-	if global.checkIfAcquired(global.elephant_powerups, "Bulln-Out"):
-		global.timer *= 1.5
 	if global.checkIfAcquired(global.elephant_powerups, "Probabullite"):
 		global.elephant_luck *= 2
 
