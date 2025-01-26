@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c35cqab6l1inr"
+path="res://.godot/imported/5.wav-931d2bb775ead0582c9bd4af4f6096c5.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/boite à musique/5.wav"
+dest_files=["res://.godot/imported/5.wav-931d2bb775ead0582c9bd4af4f6096c5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
