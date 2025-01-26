@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bir6eb7ippktr"]
+[gd_scene load_steps=24 format=3 uid="uid://bir6eb7ippktr"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_5xcvu"]
 [ext_resource type="Script" path="res://Scripts/round_end.gd" id="1_frqbu"]
@@ -6,7 +6,55 @@
 [ext_resource type="AudioStream" uid="uid://da4yj1ipf57rr" path="res://Assets/Sound/Game Music.wav" id="4_ba165"]
 [ext_resource type="AudioStream" uid="uid://fnhdm7bpd1f6" path="res://Assets/Sound/Round_Start_kazoo.wav" id="5_bnfro"]
 
-[node name="RoundEnd" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_dia3t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ec4xj"]
+gradient = SubResource("Gradient_dia3t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gicv1"]
+texture = SubResource("GradientTexture2D_ec4xj")
+
+[sub_resource type="Gradient" id="Gradient_23j7t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_khfi2"]
+gradient = SubResource("Gradient_23j7t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efiwq"]
+texture = SubResource("GradientTexture2D_khfi2")
+
+[sub_resource type="Gradient" id="Gradient_mjso0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fu3co"]
+gradient = SubResource("Gradient_mjso0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54fhg"]
+texture = SubResource("GradientTexture2D_fu3co")
+
+[sub_resource type="Gradient" id="Gradient_c2w3c"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0lpxl"]
+gradient = SubResource("Gradient_c2w3c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uid2r"]
+texture = SubResource("GradientTexture2D_0lpxl")
+
+[sub_resource type="Gradient" id="Gradient_8sr1t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_brpjy"]
+gradient = SubResource("Gradient_8sr1t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8vbp"]
+texture = SubResource("GradientTexture2D_brpjy")
+
+[sub_resource type="Gradient" id="Gradient_u0crg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pn6ux"]
+gradient = SubResource("Gradient_u0crg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ke2cn"]
+texture = SubResource("GradientTexture2D_pn6ux")
+
+[node name="RoundEnd2" type="Node2D"]
 script = ExtResource("1_frqbu")
 metadata/_edit_vertical_guides_ = [608.0, 1024.0]
 
@@ -77,8 +125,12 @@ offset_left = 128.0
 offset_top = 528.0
 offset_right = 439.0
 offset_bottom = 624.0
+focus_neighbor_right = NodePath("../secondBonus")
+focus_next = NodePath("../secondBonus")
 theme_override_fonts/font = ExtResource("2_ko4f2")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxTexture_gicv1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_efiwq")
 alignment = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/firstBonus"]
@@ -113,6 +165,12 @@ offset_left = 503.0
 offset_top = 528.0
 offset_right = 823.0
 offset_bottom = 624.0
+focus_neighbor_left = NodePath("../firstBonus")
+focus_neighbor_right = NodePath("../thirdBonus")
+focus_next = NodePath("../thirdBonus")
+focus_previous = NodePath("../firstBonus")
+theme_override_styles/focus = SubResource("StyleBoxTexture_54fhg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uid2r")
 
 [node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/secondBonus"]
 z_index = 5
@@ -146,6 +204,10 @@ offset_left = 880.0
 offset_top = 528.0
 offset_right = 1200.0
 offset_bottom = 624.0
+focus_neighbor_left = NodePath("../secondBonus")
+focus_previous = NodePath("../secondBonus")
+theme_override_styles/focus = SubResource("StyleBoxTexture_a8vbp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ke2cn")
 
 [node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/thirdBonus"]
 z_index = 5
@@ -183,6 +245,8 @@ offset_right = 1071.0
 offset_bottom = 824.0
 theme_override_fonts/font = ExtResource("2_ko4f2")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxTexture_a8vbp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ke2cn")
 alignment = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="BeeBonus/firstBeeBonus"]
@@ -217,6 +281,8 @@ offset_left = 1135.0
 offset_top = 728.0
 offset_right = 1455.0
 offset_bottom = 824.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_a8vbp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ke2cn")
 
 [node name="Sprite2D" type="Sprite2D" parent="BeeBonus/secondBeeBonus"]
 z_index = 5
@@ -250,6 +316,8 @@ offset_left = 1512.0
 offset_top = 728.0
 offset_right = 1832.0
 offset_bottom = 824.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_a8vbp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ke2cn")
 
 [node name="Sprite2D" type="Sprite2D" parent="BeeBonus/thirdBeeBonus"]
 z_index = 5
@@ -295,8 +363,11 @@ stream = ExtResource("4_ba165")
 stream = ExtResource("5_bnfro")
 
 [connection signal="button_up" from="ElephantBonus/firstBonus" to="." method="_on_first_bonus_button_up"]
+[connection signal="pressed" from="ElephantBonus/firstBonus" to="." method="_on_first_bonus_pressed"]
 [connection signal="button_up" from="ElephantBonus/secondBonus" to="." method="_on_second_bonus_button_up"]
+[connection signal="pressed" from="ElephantBonus/secondBonus" to="." method="_on_second_bonus_pressed"]
 [connection signal="button_up" from="ElephantBonus/thirdBonus" to="." method="_on_third_bonus_button_up"]
+[connection signal="pressed" from="ElephantBonus/thirdBonus" to="." method="_on_third_bonus_pressed"]
 [connection signal="button_up" from="BeeBonus/firstBeeBonus" to="." method="_on_first_bee_bonus_button_up"]
 [connection signal="button_up" from="BeeBonus/secondBeeBonus" to="." method="_on_second_bee_bonus_button_up"]
 [connection signal="button_up" from="BeeBonus/thirdBeeBonus" to="." method="_on_third_bee_bonus_button_up"]

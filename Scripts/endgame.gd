@@ -4,8 +4,10 @@ extends Node2D
 @onready var victory_label = get_node("VictoryLabel")
 
 @onready var eclataxSound = get_node("secretEclatax")
+@onready var cheerSound = get_node("cheerSound")
 
 func _ready() -> void:
+	cheerSound.play()
 	if global.elephant_won:
 		victory_label.text += "l'elephant !"
 	else:
