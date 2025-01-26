@@ -54,7 +54,7 @@ gradient = SubResource("Gradient_u0crg")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ke2cn"]
 texture = SubResource("GradientTexture2D_pn6ux")
 
-[node name="RoundEnd" type="Node2D"]
+[node name="RoundEnd2" type="Node2D"]
 script = ExtResource("1_frqbu")
 metadata/_edit_vertical_guides_ = [608.0, 1024.0]
 
