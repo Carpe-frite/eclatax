@@ -36,6 +36,7 @@ var bee_y = 360
 
 var bubble_id = 0
 var currently_selected_bubble_id
+var currently_selected_bubble_ids = []
 var bubble_array = []
 var speed_bubble = 200
 var timer = 60
@@ -56,9 +57,10 @@ func getPosition(tab, search):
 	
 func destroy_bubble(x):
 	x.bubble_properties["is_alive"] = false
-	if global.currently_selected_bubble_id != null:
-		if global.bubble_array[global.currently_selected_bubble_id].bubble_properties["is_alive"] == false:
-					global.bubble_array[global.currently_selected_bubble_id].bubble_instance.visible = false
+	if global.currently_selected_bubble_ids.is_empty() == false:
+		for y in global.currently_selected_bubble_ids:
+			if global.bubble_array[y].bubble_properties["is_alive"] == false:
+				global.bubble_array[y].bubble_instance.visible = false
 	if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 		global.bee_speed *= 0.95
 
