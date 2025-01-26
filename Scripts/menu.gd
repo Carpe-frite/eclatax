@@ -7,6 +7,7 @@ extends Node2D
 @onready var eclataxSound = get_node("ECLATAXSound")
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	eclataxSound.play()
 	
 	global.bee_powerups = []
