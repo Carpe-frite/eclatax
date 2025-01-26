@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bir6eb7ippktr"]
+[gd_scene load_steps=5 format=3 uid="uid://bir6eb7ippktr"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_5xcvu"]
 [ext_resource type="Script" path="res://Scripts/round_end.gd" id="1_frqbu"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="2_ko4f2"]
+[ext_resource type="Texture2D" uid="uid://bqsh0y0p20cen" path="res://Assets/Bonus/Surpobullation.png" id="4_o0iy0"]
 
 [node name="RoundEnd" type="Node2D"]
 script = ExtResource("1_frqbu")
@@ -71,10 +72,41 @@ text = "Pouvoirs de l'abeille :"
 [node name="ElephantBonus" type="Node2D" parent="."]
 
 [node name="firstBonus" type="Button" parent="ElephantBonus"]
-offset_left = 119.0
+offset_left = 128.0
 offset_top = 528.0
 offset_right = 439.0
 offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 24
+alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/firstBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_o0iy0")
+
+[node name="NameLabel" type="Label" parent="ElephantBonus/firstBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="ElephantBonus/firstBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="secondBonus" type="Button" parent="ElephantBonus"]
 offset_left = 503.0
@@ -82,11 +114,63 @@ offset_top = 528.0
 offset_right = 823.0
 offset_bottom = 624.0
 
+[node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/secondBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_o0iy0")
+
+[node name="NameLabel" type="Label" parent="ElephantBonus/secondBonus"]
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="ElephantBonus/secondBonus"]
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="thirdBonus" type="Button" parent="ElephantBonus"]
-offset_left = 887.0
+offset_left = 880.0
 offset_top = 528.0
-offset_right = 1207.0
+offset_right = 1200.0
 offset_bottom = 624.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ElephantBonus/thirdBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_o0iy0")
+
+[node name="NameLabel" type="Label" parent="ElephantBonus/thirdBonus"]
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="ElephantBonus/thirdBonus"]
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="BeeBonus" type="Node2D" parent="."]
 
@@ -100,4 +184,5 @@ theme_override_fonts/font = ExtResource("2_ko4f2")
 theme_override_font_sizes/font_size = 64
 text = "Commencer le round 2"
 
+[connection signal="button_up" from="ElephantBonus/firstBonus" to="." method="_on_first_bonus_button_up"]
 [connection signal="button_up" from="NextRoundButton" to="." method="_on_next_round_button_button_up"]
