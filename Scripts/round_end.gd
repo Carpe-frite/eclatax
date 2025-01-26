@@ -50,6 +50,7 @@ func _ready() -> void:
 		global.bee_powerups = []
 		global.elephant_powerups = []
 		three_boni()
+		elephant_first_bonus.grab_focus()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		round_end_title.text = "Fin du round " + str(global.round_number)
 		if global.elephant_won == true:
@@ -117,6 +118,8 @@ func _on_first_bonus_button_up() -> void:
 			global.elephant_powerups.append("Probabullite")
 
 func _on_first_bee_bonus_button_up() -> void:
+	bee_second_bonus.visible = false
+	bee_third_bonus.visible = false
 	match selected_bee_array[0]["effect"]:
 		0: 
 			global.bee_powerups.append("Piquenique")
@@ -150,6 +153,8 @@ func _on_third_bonus_button_up() -> void:
 			print(global.elephant_powerups)
 
 func _on_second_bee_bonus_button_up() -> void:
+	bee_first_bonus.visible = false
+	bee_third_bonus.visible = false
 	match selected_bee_array[1]["effect"]:
 		0: 
 			global.bee_powerups.append("Piquenique")
@@ -164,6 +169,8 @@ func _on_second_bee_bonus_button_up() -> void:
 
 
 func _on_third_bee_bonus_button_up() -> void:
+	bee_first_bonus.visible = false
+	bee_second_bonus.visible = false
 	match selected_bee_array[2]["effect"]:
 		0: 
 			global.bee_powerups.append("Piquenique")
@@ -175,3 +182,19 @@ func _on_third_bee_bonus_button_up() -> void:
 			global.bee_powerups.append("Precipiquation")
 		4: #flegmapqie
 			global.bee_powerups.append("Flegmapique")
+
+
+func _on_first_bonus_pressed() -> void:
+	print("1")
+	elephant_second_bonus.visible = false
+	elephant_third_bonus.visible = false
+
+func _on_second_bonus_pressed() -> void:
+	print("2")
+	elephant_first_bonus.visible = false
+	elephant_third_bonus.visible = false
+
+func _on_third_bonus_pressed() -> void:
+	print("3")
+	elephant_second_bonus.visible = false
+	elephant_first_bonus.visible = false
