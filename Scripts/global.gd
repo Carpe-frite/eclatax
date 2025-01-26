@@ -126,7 +126,7 @@ var menu_music_volume_attenuation  =-3
 
 
 ##Consts for probabilities:
-const ExbullesionProb = 10
+const ExbullesionProb = 5
 const NebulleuseProb = 5
 const BulleDozerProb = 2
 const PiqueNiqueProb = 5
@@ -149,7 +149,7 @@ var deambulle = {"name" : "Deambulle", "weight" : 20, "desc" : "Vitesse de l'él
 var probabullite = {"name" : "Probabullite", "weight" : 8, "desc" : "Chance +100% (Double les probabilites de declenchement des autres bonus)" , "image" : "res://Assets/Bonus/probabulite.png", "effect" : 4}
 var ambullence = {"name" : "Ambullence", "weight" : 4, "desc" : "Vitesse des bulles -80%\n Bulle eclatee: Vitesse des bulles +2% pour le reste du round" , "image" : "res://Assets/Bonus/ambullence.png", "effect" : 5}
 var bulnout = {"name" : "Buln-Out", "weight" : 6, "desc" : "Duree d'un round +50%" , "image" : "res://Assets/Bonus/Buln-Out.png", "effect" : 6}
-var exbullession = {"name" : "Exbullession", "weight" : 5, "desc" : "Bulle eclatee manuellement, 10% de chances: Teleporte l'abeille à une position aleatoire" , "image" : "res://Assets/Bonus/exbullession.png", "effect" : 7}
+var exbullession = {"name" : "Exbullession", "weight" : 5, "desc" : "Bulle eclatee manuellement, 5% de chances: Teleporte l'abeille à une position aleatoire" , "image" : "res://Assets/Bonus/exbullession.png", "effect" : 7}
 var minibulle = {"name" : "Minibulle", "weight" : 10, "desc" : "Taille des bulles -50%" , "image" : "res://Assets/Bonus/minibulle.png", "effect" : 8}
 
 
@@ -173,9 +173,11 @@ var compiquation = {"name" : "Compiquation", "weight" : 2, "desc" : "Bulle creee
 var hypothepique = {"name" : "Hypothepique", "weight" : 4, "desc" : "Chance +100% (Double les probabilites de declanchement des autres bonus)" , "image" : "res://Assets/Bonus/hypothepique.png", "effect" : 6}
 var expiqueration = {"name" : "Expiqueration", "weight" : 5, "desc" : "Duree d'un round -10%" , "image" : "res://Assets/Bonus/expiqueration.png", "effect" : 7}
 var piquebulle = {"name" : "Pique-Bulle", "weight" : 10, "desc" : "Taille des bulles +50%" , "image" : "res://Assets/Bonus/pique-bulle.png", "effect" : 8}
+var automapique = {"name" : "Automapique", "weight" : 4, "desc" : "Collision entre bulle et l'abeille, 5% de chances: Eclate la bulle" , "image" : "", "effect" : 8}
+var frenepique = {"name" : "Frenepique", "weight" : 2, "desc" : "Taille de l'abeille -50%, Vitesse de l'abeille +400%" , "image" : "", "effect" : 8}
 
 
-var bee_effects_array = [piquenique, cripique, piquantesque, precipiquation, flegmapique, compiquation, piquebulle, expiqueration, hypothepique]
+var bee_effects_array = [frenepique, automapique, piquenique, cripique, piquantesque, precipiquation, flegmapique, compiquation, piquebulle, expiqueration, hypothepique]
 
 
 var bubble_id = 0
