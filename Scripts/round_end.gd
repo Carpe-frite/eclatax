@@ -54,8 +54,10 @@ func _ready() -> void:
 	rng.randomize()
 	roundEndSound.play()
 	levelMusic.play(global.continue_level_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency())
+
 	if global.round_number < 5:
 		three_boni()
+		elephant_first_bonus.grab_focus()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		round_end_title.text = "Fin du round " + str(global.round_number)
 		
@@ -98,8 +100,46 @@ func _ready() -> void:
 		bee_third_bonus.get_child(2).text = selected_bee_array[2]["desc"]
 		
 	else:
-		self.get_parent().get_tree().change_scene_to_file("res://endgame.tscn")
+		victory_label.text = "L'abeille remporte le round !"
 	
+	global.round_number += 1
+	global.bubble_array = []
+	global.bubble_id = 0
+	var elephant_x = 960
+	next_round_button.text = "Commencer le round " + str(global.round_number)
+	
+	var image_first_bonus = load(selected_array[0]["image"])
+	elephant_first_bonus.get_child(0).set_texture(image_first_bonus)
+	elephant_first_bonus.get_child(1).text = selected_array[0]["name"].capitalize()
+	elephant_first_bonus.get_child(2).text = selected_array[0]["desc"]
+	
+	var image_second_bonus = load(selected_array[1]["image"])
+	elephant_second_bonus.get_child(0).set_texture(image_second_bonus)
+	elephant_second_bonus.get_child(1).text = selected_array[1]["name"].capitalize()
+	elephant_second_bonus.get_child(2).text = selected_array[1]["desc"]
+	
+	var image_third_bonus = load(selected_array[2]["image"])
+	elephant_third_bonus.get_child(0).set_texture(image_third_bonus)
+	elephant_third_bonus.get_child(1).text = selected_array[2]["name"].capitalize()
+	elephant_third_bonus.get_child(2).text = selected_array[2]["desc"]
+	
+	#bee
+	
+	var image_bee_first_bonus = load(selected_bee_array[0]["image"])
+	bee_first_bonus.get_child(0).set_texture(image_bee_first_bonus)
+	bee_first_bonus.get_child(1).text = selected_bee_array[0]["name"].capitalize()
+	bee_first_bonus.get_child(2).text = selected_bee_array[0]["desc"]
+	
+	var image_bee_second_bonus = load(selected_bee_array[1]["image"])
+	bee_second_bonus.get_child(0).set_texture(image_bee_second_bonus)
+	bee_second_bonus.get_child(1).text = selected_bee_array[1]["name"].capitalize()
+	bee_second_bonus.get_child(2).text = selected_bee_array[1]["desc"]
+	
+	var image_bee_third_bonus = load(selected_bee_array[2]["image"])
+	bee_third_bonus.get_child(0).set_texture(image_bee_third_bonus)
+	bee_third_bonus.get_child(1).text = selected_bee_array[2]["name"].capitalize()
+	bee_third_bonus.get_child(2).text = selected_bee_array[2]["desc"]
+
 func _process(delta: float) -> void:
 	pass
 	
@@ -112,6 +152,8 @@ func _on_first_bonus_button_up() -> void:
 
 func _on_first_bee_bonus_button_up() -> void:
 	global.bee_powerups.append(selected_bee_array[0]["name"])
+	bee_second_bonus.visible = false
+	bee_third_bonus.visible = false
 
 
 func _on_second_bonus_button_up() -> void:
@@ -122,7 +164,28 @@ func _on_third_bonus_button_up() -> void:
 
 func _on_second_bee_bonus_button_up() -> void:
 	global.bee_powerups.append(selected_bee_array[1]["name"])
+	bee_first_bonus.visible = false
+	bee_third_bonus.visible = false
 
 
 func _on_third_bee_bonus_button_up() -> void:
 	global.bee_powerups.append(selected_bee_array[2]["name"])
+	bee_first_bonus.visible = false
+	bee_second_bonus.visible = false
+
+
+
+func _on_first_bonus_pressed() -> void:
+	print("1")
+	elephant_second_bonus.visible = false
+	elephant_third_bonus.visible = false
+
+func _on_second_bonus_pressed() -> void:
+	print("2")
+	elephant_first_bonus.visible = false
+	elephant_third_bonus.visible = false
+
+func _on_third_bonus_pressed() -> void:
+	print("3")
+	elephant_second_bonus.visible = false
+	elephant_first_bonus.visible = false
