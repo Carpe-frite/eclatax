@@ -51,12 +51,6 @@ var elephantShootSounds: Array[AudioStream] = [
 	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_11.wav")
 ]
 
-var accord1 : Array[AudioStream] = [
-	preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
-	preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
-	preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-]
-
 #var boiteAMusique = {
 	#"accord1": [
 		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
@@ -80,29 +74,73 @@ var accord1 : Array[AudioStream] = [
 	#],
 #}
 
+func get_full_path(folderName, file):
+	return "res://Assets/Sound/" + folderName + "/" + file
+
 func get_chord_progression(folderName):
 	var dir = DirAccess.open("res://Assets/Sound/" + folderName)
+	var soundArray = []
+	var chordProgression: Array = []
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + file_name)
-			else:
+			if (!file_name.contains("import")):
 				print("Found file: " + file_name)
-			file_name = dir.get_next()
 
-#var boiteAMusique: Array[AudioStream] = [
-	#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/F1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/A1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/B1_musicbox_soft.wav"),
-	#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
-#]
+				soundArray.append(get_full_path(folderName, file_name))
+			file_name = dir.get_next()
+	
+	var chord_1 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "1.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "3.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "5.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "8.wav"))]),
+	]
+	
+	var chord_2 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "2.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "4.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "6.wav"))]),
+	]
+	
+	var chord_3 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "5.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "7.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "2.wav"))]),
+	]
+	
+	chordProgression = [
+		chord_1,
+		chord_2,
+		chord_3,
+		chord_1,
+		
+		chord_1,
+		chord_2,
+		chord_3,
+		chord_1,
+		
+		chord_3,
+		chord_1,
+		chord_3,
+		chord_1,
+		
+		chord_2,
+		chord_1,
+		chord_3,
+		chord_3,
+		
+		chord_3,
+	]
+	
+	return chordProgression
+
+func get_random_note(bank, chord_number):
+	var chord = bank[chord_number]
+	var size = chord.size()
+	
+	return chord[randi() % size]
 
 var menu_music_volume_attenuation  =-3
 

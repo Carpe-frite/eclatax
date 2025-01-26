@@ -134,10 +134,10 @@ polygon = PackedVector2Array(-88, 24, -56, -24, 56, -24, 96, 40, 32, 80, -40, 80
 script = ExtResource("5_3vg7t")
 
 [node name="BubblePopSoundPlayer" type="AudioStreamPlayer2D" parent="Monde/acteurs/bubble_generator"]
-volume_db = 19.179
+volume_db = 3.731
 
 [node name="NoteLayerBubblePop" type="AudioStreamPlayer2D" parent="Monde/acteurs/bubble_generator"]
-volume_db = 8.954
+volume_db = 6.98
 
 [node name="RoundTimer" type="Timer" parent="."]
 wait_time = 10.0
