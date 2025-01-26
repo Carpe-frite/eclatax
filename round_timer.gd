@@ -4,10 +4,8 @@ extends Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Timer properties init
-	global.timer = 30
+	global.timer = 10
 	
-	if global.checkIfAcquired(global.elephant_powerups, "Probullession"):
-		global.speed_bubble *= 1.33
 	if global.checkIfAcquired(global.elephant_powerups, "Bulln-Out"):
 		global.timer *= 1.5
 	if global.checkIfAcquired(global.bee_powerups, "Flegmapique"):

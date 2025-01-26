@@ -9,6 +9,9 @@ extends Node2D
 func _ready() -> void:
 	eclataxSound.play()
 	
+	global.bee_powerups = []
+	global.elephant_powerups = []
+	
 	main_menu_music.volume_db = global.menu_music_volume_attenuation
 	if global.continue_music_at != 0.0:
 		audio_button_hover.stream = global.buttonClickSounds[randi() % 3]
