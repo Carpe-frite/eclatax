@@ -19,7 +19,7 @@ var banques = [
 const MAX_PLAYERS = 20
 var audio_players: Array = []
 
-@onready var chordArray = global.get_chord_progression(banques[randi() % 4])
+@onready var chordArray = global.get_chord_progression(banques[randi() % banques.size()])
 
 #CLASSES
 func _ready() -> void:
