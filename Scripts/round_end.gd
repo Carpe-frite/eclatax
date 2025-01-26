@@ -79,4 +79,4 @@ func _on_next_round_button_button_up() -> void:
 func _on_first_bonus_button_up() -> void:
 	match selected_array[0]["effect"]:
 		0: #surpobullation
-			global.elephant_bubble_count = 2
+			global.elephant_powerups.append("Supobullation")
