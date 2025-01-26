@@ -17,7 +17,7 @@ var banques = [
 	"guimbarde"
 ]
 
-const MAX_PLAYERS = 20
+const MAX_PLAYERS = 10
 var audio_players: Array = []
 
 @onready var chordArray = global.get_chord_progression(banques[randi() % banques.size()])
@@ -42,16 +42,14 @@ func _process(delta: float) -> void:
 	var time = levelMusic.get_playback_position() + AudioServer.get_time_since_last_mix()
 	time -= AudioServer.get_output_latency()
 	chordToPlay = int(time / 2.0)
-	
-	print(str(time, " ", chordToPlay))
-	
+		
 	time_left_label.text = str(int(timer.get_time_left()))
 	
 	#if global.is_bubble_selected == true:
 	if Input.is_action_just_released("ui_mouse_LeftClick"):
 		for x in global.currently_selected_bubble_ids:
 			play_note(global.get_random_note(chordArray, chordToPlay))
-			global.get_chord_progression("boite à musique")
+
 			bubblePopSoundPlayer.stream = global.bubblePopSounds[randi() % 12]
 			bubblePopSoundPlayer.play()
 			global.destroy_bubble(global.bubble_array[x])
