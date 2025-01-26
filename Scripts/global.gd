@@ -6,7 +6,143 @@ var elephant_won
 var elephant_rounds_won = 0
 var bee_rounds_won = 0
 
-var continue_music_at
+var continue_music_at = 0
+var continue_level_music_at = 0
+
+var buttonHoverSounds: Array[AudioStream] = [
+	preload("res://Assets/Sound/passage souris/Souris_Bouton_1.wav"),
+	preload("res://Assets/Sound/passage souris/Souris_Bouton_2.wav"),
+	preload("res://Assets/Sound/passage souris/Souris_Bouton_3.wav"),
+	preload("res://Assets/Sound/passage souris/Souris_Bouton_4.wav")
+]
+
+var buttonClickSounds: Array[AudioStream] = [
+	preload("res://Assets/Sound/clic souris/Souris_Clic_1.wav"),
+	preload("res://Assets/Sound/clic souris/Souris_Clic_2.wav"),
+	preload("res://Assets/Sound/clic souris/Souris_Clic_3.wav")
+]
+
+var bubblePopSounds: Array[AudioStream] = [
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_1.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_2.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_3.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_4.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_5.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_6.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_7.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_8.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_9.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_10.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_11.wav"),
+	preload("res://Assets/Sound/bubble pop/Bubble_Pop_SFX_12.wav")
+]
+
+var elephantShootSounds: Array[AudioStream] = [
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_1.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_2.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_3.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_4.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_5.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_6.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_7.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_8.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_9.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_10.wav"),
+	preload("res://Assets/Sound/elephant shoot/Elephant_Pew_SFX_11.wav")
+]
+
+#var boiteAMusique = {
+	#"accord1": [
+		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#],
+	#"accord2": [
+		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/F1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/A1_musicbox_soft.wav"),
+	#],
+	#"accord3": [
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/B1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/D1_musicbox_soft.wav"),
+	#],
+	#"accord4": [
+		#preload("res://Assets/Sound/boite à musique/C1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/E1_musicbox_soft.wav"),
+		#preload("res://Assets/Sound/boite à musique/G1_musicbox_soft.wav"),
+	#],
+#}
+
+func get_full_path(folderName, file):
+	return "res://Assets/Sound/" + folderName + "/" + file
+
+func get_chord_progression(folderName):
+	var dir = DirAccess.open("res://Assets/Sound/" + folderName)
+	var soundArray = []
+	var chordProgression: Array = []
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if (!file_name.contains("import")):
+				print("Found file: " + file_name)
+
+				soundArray.append(get_full_path(folderName, file_name))
+			file_name = dir.get_next()
+	
+	var chord_1 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "1.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "3.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "5.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "8.wav"))]),
+	]
+	
+	var chord_2 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "2.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "4.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "6.wav"))]),
+	]
+	
+	var chord_3 = [
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "5.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "7.wav"))]),
+		load(soundArray[soundArray.bsearch(get_full_path(folderName, "2.wav"))]),
+	]
+	
+	chordProgression = [
+		chord_1,
+		chord_2,
+		chord_3,
+		chord_1,
+		
+		chord_1,
+		chord_2,
+		chord_3,
+		chord_1,
+		
+		chord_3,
+		chord_1,
+		chord_3,
+		chord_1,
+		
+		chord_2,
+		chord_1,
+		chord_3,
+		chord_3,
+		
+		chord_3,
+	]
+	
+	return chordProgression
+
+func get_random_note(bank, chord_number):
+	var chord = bank[chord_number]
+	var size = chord.size()
+	
+	return chord[randi() % size]
+
+var menu_music_volume_attenuation  =-3
 
 #Bonus effects
 

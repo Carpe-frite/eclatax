@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2vxssvol0vgu"]
+[gd_scene load_steps=10 format=3 uid="uid://4ffkf1yjlreo"]
 
 [ext_resource type="Texture2D" uid="uid://dgae7g6lbbct" path="res://background.png" id="1_83inv"]
 [ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_rp3iq"]
@@ -8,9 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c55rcaopt20hh" path="res://Assets/back_arrow.png" id="5_g18nq"]
 [ext_resource type="Script" path="res://button_back_to_menu.gd" id="6_71fhn"]
 [ext_resource type="AudioStream" uid="uid://bj44wehse0qxk" path="res://Assets/Sound/Menu Music.wav" id="8_af5da"]
+[ext_resource type="AudioStream" uid="uid://bdo4mcjskc4wp" path="res://Assets/Sound/Yay.wav" id="9_6t7rx"]
 
 [node name="HowToPlay" type="Node2D"]
 script = ExtResource("1_rp3iq")
+
+[node name="AudioButtonBackSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1822, 46)
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(960, 560)
@@ -52,7 +56,7 @@ Appuyez sur la [b]barre espace[/b] pour envoyer des bulles.
 
 [b]Joueur abeille[/b] : Dirigez-vous avec la souris et utilisez le clic gauche pour interagir avec les bulles et les faire exploser.
 
-[b]Déroulement de la partie :[/b]
+[b]Deroulement de la partie :[/b]
 
 [b]Rounds[/b] : Une partie se compose de 5 rounds de 40 secondes.
 
@@ -79,4 +83,9 @@ script = ExtResource("6_71fhn")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_af5da")
 
+[node name="YAYSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_6t7rx")
+volume_db = -5.804
+
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

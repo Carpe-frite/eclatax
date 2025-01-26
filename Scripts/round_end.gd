@@ -24,7 +24,14 @@ func three_boni():
 			else:
 				pass
 
+@onready var levelMusic = get_node("LevelMusicPlayer")
+@onready var roundEndSound = get_node("RoundEndSound")
+
+
+
 func _ready() -> void:
+	roundEndSound.play()
+	levelMusic.play(global.continue_level_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency())
 	if global.round_number < 5:
 		three_boni()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -65,6 +72,7 @@ func _process(delta: float) -> void:
 	#match x:	
 
 func _on_next_round_button_button_up() -> void:
+	global.continue_level_music_at = levelMusic.get_playback_position()  + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
 	self.get_parent().get_tree().change_scene_to_file("res://world.tscn")
 
 

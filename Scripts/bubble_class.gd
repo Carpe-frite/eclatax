@@ -1,4 +1,6 @@
 extends Node2D
+
+@onready var levelMusic = get_node("../../../LevelMusicPlayer")
 		
 func bubble_action():
 	if Input.is_action_just_released("ui_kb_Space"):
@@ -17,9 +19,11 @@ func bubbles_go_up(delta):
 		if x.bubble_properties["y"] < 100 and x.bubble_properties["is_alive"] == true:
 			global.destroy_bubble(x)
 			global.elephant_won = true
+			
 			if global.checkIfAcquired(global.bee_powerups, "Cripique") and global.bee_cripique_active:
 				global.bee_cripique_active = false
 			else:
+				global.continue_level_music_at = levelMusic.get_playback_position()  + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
 				self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
 
 func _ready() -> void:

@@ -1,9 +1,11 @@
 class_name Elephant
-extends Node
+extends Node2D
 
 
 @onready var acteur_elephant = self
 @onready var sprite_elephant = $AnimatedSprite2D
+
+@onready var elephantSoundPlayer = get_node("ElephantShootSoundPlayer")
 
 func _ready() -> void:
 	##Elephant properties init
@@ -35,6 +37,8 @@ func move_elephant(delta):
 
 func shoot_bubble_animation():
 	if Input.is_action_pressed("ui_kb_Space"):
+		elephantSoundPlayer.stream = global.elephantShootSounds[randi() % 11]
+		elephantSoundPlayer.play()
 		sprite_elephant.play("shoot")
 	else: 
 		sprite_elephant.play("default")

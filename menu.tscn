@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://g4ilgxpsakue"]
+[gd_scene load_steps=7 format=3 uid="uid://g4ilgxpsakue"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_7llwc"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_wyt6p"]
 [ext_resource type="Texture2D" uid="uid://bwxl6ofm8q0sb" path="res://Assets/Title_menu.png" id="2_7bo5t"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="3_0gka8"]
 [ext_resource type="AudioStream" uid="uid://bj44wehse0qxk" path="res://Assets/Sound/Menu Music.wav" id="5_6ypfc"]
+[ext_resource type="AudioStream" uid="uid://d1ig27n7avpvx" path="res://Assets/Sound/ECLATAX_with_kazoo.wav" id="6_88now"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_wyt6p")
@@ -53,5 +54,14 @@ text = "Comment jouer"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_6ypfc")
 
+[node name="AudioBoutonHover" type="AudioStreamPlayer2D" parent="."]
+volume_db = 6.199
+
+[node name="ECLATAXSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_88now")
+volume_db = 3.838
+
 [connection signal="button_down" from="StartGame" to="." method="_on_start_game_button_down"]
+[connection signal="mouse_entered" from="StartGame" to="." method="_on_start_game_mouse_entered"]
 [connection signal="button_down" from="HowToPlay" to="." method="_on_how_to_play_button_down"]
+[connection signal="mouse_entered" from="HowToPlay" to="." method="_on_how_to_play_mouse_entered"]
