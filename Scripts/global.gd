@@ -161,22 +161,30 @@ var elephant_speed ##The elephant's speed
 var elephant_bubble_count ##The number of bubbles shot per space press
 var elephant_angle ##The elephant's trunk angle
 var elephant_angle_range ##The max angle at which the elephant's trunk can rotate
-var elephant_powerups = ["Probabullite"] ##Lists the powerups acquired by the elephant
+var elephant_powerups = [] ##Lists the powerups acquired by the elephant
 var elephant_luck = 1
 
 var surpobullation = {"name" : "surpobullation", "weight" : 10, "desc" : "Bulles par tir +1" , "image" : "res://Assets/Bonus/Surpobullation.png", "effect" : 0}
-var nebulleuse = {"name" : "nébulleuse", "weight" : 10, "desc" : "Bulle éclatée, 10% de chances: Crée 5 bulles autour" , "image" : "res://Assets/Bonus/Nebulleuse.png", "effect" : 1}
+var nebulleuse = {"name" : "nebulleuse", "weight" : 10, "desc" : "Bulle eclatee, 10% de chances: Cree 5 bulles autour" , "image" : "res://Assets/Bonus/Nebulleuse.png", "effect" : 1}
 var probullession = {"name" : "Probullession", "weight" : 20, "desc" : "Vitesse des bulles +33%" , "image" : "res://Assets/Bonus/Probullession.png", "effect" : 2}
+var deambulle = {"name" : "Deambulle", "weight" : 20, "desc" : "Vitesse de l'éléphant +50%" , "image" : "res://Assets/Bonus/Probullession.png", "effect" : 3}
+var probabullite = {"name" : "Probabullite", "weight" : 8, "desc" : "Chance +100% (Double les probabilites de declenchement des autres bonus)" , "image" : "res://Assets/Bonus/Probullession.png", "effect" : 4}
 
-var elephant_effects_array = [surpobullation, nebulleuse, probullession]
+var elephant_effects_array = [surpobullation, nebulleuse, probullession, deambulle, probabullite]
 
 # Bee attributes
 var bee_speed
 var bee_size
-var bee_powerups = ["Pique-Nique", "Cripique"] # Powerups acquired by the bee
+var bee_powerups = [] # Powerups acquired by the bee
 var bee_luck = 1
 var bee_x = 960
 var bee_y = 360
+var piquenique = {"name" : "pique-nique", "weight" : 3, "desc" : "Bulle eclatee manuellement, 5% de chances: Eclate jusqu'à 3 autres bulles aleatoires" , "image" : "res://Assets/Bonus/piquenique.png", "effect" : 0}
+var cripique = {"name" : "cripique", "weight" : 8, "desc" : "Bulle en haut de l'ecran, une fois par round : Eclate la bulle" , "image" : "res://Assets/Bonus/cripique.png", "effect" : 1}
+var piquantesque = {"name" : "piquantesque", "weight" : 10, "desc" : "Taille de l'abeille +75%" , "image" : "res://Assets/Bonus/piquantesque.png", "effect" : 2}
+var precipiquation = {"name" : "precipiquation", "weight" : 10, "desc" : "Vitesse de l'abeille +100%%" , "image" : "res://Assets/Bonus/piquantesque.png", "effect" : 3}
+var flegmapique = {"name" : "flegmapique", "weight" : 9, "desc" : "Vitesse des bulles -50%" , "image" : "res://Assets/Bonus/piquantesque.png", "effect" : 4}
+var bee_effects_array = [piquenique, cripique, piquantesque, precipiquation, flegmapique]
 var bee_cripique_active
 
 var bubble_id = 0
