@@ -100,4 +100,7 @@ func play_note(stream: AudioStream):
 
 func _on_round_timer_timeout() -> void:
 	global.continue_level_music_at = levelMusic.get_playback_position()  + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
-	self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
+	if global.round_number == 5:
+		self.get_parent().get_tree().change_scene_to_file("res://endgame.tscn")
+	else:
+		self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
