@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bir6eb7ippktr"]
+[gd_scene load_steps=6 format=3 uid="uid://bir6eb7ippktr"]
 
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="1_5xcvu"]
 [ext_resource type="Script" path="res://Scripts/round_end.gd" id="1_frqbu"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="2_ko4f2"]
 [ext_resource type="AudioStream" uid="uid://da4yj1ipf57rr" path="res://Assets/Sound/Game Music.wav" id="4_ba165"]
-[ext_resource type="Texture2D" uid="uid://bqsh0y0p20cen" path="res://Assets/Bonus/Surpobullation.png" id="4_o0iy0"]
 [ext_resource type="AudioStream" uid="uid://fnhdm7bpd1f6" path="res://Assets/Sound/Round_Start_kazoo.wav" id="5_bnfro"]
 
 [node name="RoundEnd" type="Node2D"]
@@ -87,7 +86,6 @@ z_index = 5
 z_as_relative = false
 position = Vector2(48, 48)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_o0iy0")
 
 [node name="NameLabel" type="Label" parent="ElephantBonus/firstBonus"]
 layout_mode = 0
@@ -121,7 +119,6 @@ z_index = 5
 z_as_relative = false
 position = Vector2(48, 48)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_o0iy0")
 
 [node name="NameLabel" type="Label" parent="ElephantBonus/secondBonus"]
 layout_mode = 0
@@ -155,7 +152,6 @@ z_index = 5
 z_as_relative = false
 position = Vector2(48, 48)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_o0iy0")
 
 [node name="NameLabel" type="Label" parent="ElephantBonus/thirdBonus"]
 layout_mode = 0
@@ -180,6 +176,108 @@ autowrap_mode = 2
 
 [node name="BeeBonus" type="Node2D" parent="."]
 
+[node name="firstBeeBonus" type="Button" parent="BeeBonus"]
+offset_left = 760.0
+offset_top = 728.0
+offset_right = 1071.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 24
+alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="BeeBonus/firstBeeBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+
+[node name="NameLabel" type="Label" parent="BeeBonus/firstBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="BeeBonus/firstBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="secondBeeBonus" type="Button" parent="BeeBonus"]
+offset_left = 1135.0
+offset_top = 728.0
+offset_right = 1455.0
+offset_bottom = 824.0
+
+[node name="Sprite2D" type="Sprite2D" parent="BeeBonus/secondBeeBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+
+[node name="NameLabel" type="Label" parent="BeeBonus/secondBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="BeeBonus/secondBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="thirdBeeBonus" type="Button" parent="BeeBonus"]
+offset_left = 1512.0
+offset_top = 728.0
+offset_right = 1832.0
+offset_bottom = 824.0
+
+[node name="Sprite2D" type="Sprite2D" parent="BeeBonus/thirdBeeBonus"]
+z_index = 5
+z_as_relative = false
+position = Vector2(48, 48)
+scale = Vector2(0.05, 0.05)
+
+[node name="NameLabel" type="Label" parent="BeeBonus/thirdBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 304.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.282216, 0.468929, 0.854772, 1)
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="BeeBonus/thirdBeeBonus"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ko4f2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="NextRoundButton" type="Button" parent="."]
 z_index = 5
 offset_left = 728.0
@@ -197,4 +295,9 @@ stream = ExtResource("4_ba165")
 stream = ExtResource("5_bnfro")
 
 [connection signal="button_up" from="ElephantBonus/firstBonus" to="." method="_on_first_bonus_button_up"]
+[connection signal="button_up" from="ElephantBonus/secondBonus" to="." method="_on_second_bonus_button_up"]
+[connection signal="button_up" from="ElephantBonus/thirdBonus" to="." method="_on_third_bonus_button_up"]
+[connection signal="button_up" from="BeeBonus/firstBeeBonus" to="." method="_on_first_bee_bonus_button_up"]
+[connection signal="button_up" from="BeeBonus/secondBeeBonus" to="." method="_on_second_bee_bonus_button_up"]
+[connection signal="button_up" from="BeeBonus/thirdBeeBonus" to="." method="_on_third_bee_bonus_button_up"]
 [connection signal="button_up" from="NextRoundButton" to="." method="_on_next_round_button_button_up"]

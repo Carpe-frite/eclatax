@@ -10,7 +10,6 @@ func bubble_action():
 			global.bubble_id += 1
 			if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 				global.bee_speed *= 1.05
-	print(self.get_child_count())
 		
 func bubbles_go_up(delta):
 	for x in global.bubble_array:
