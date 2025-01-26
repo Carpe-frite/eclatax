@@ -47,7 +47,7 @@ func _ready() -> void:
 	if global.checkIfAcquired(global.elephant_powerups, "Probullession"):
 		global.speed_bubble *= 1.5
 	if global.checkIfAcquired(global.elephant_powerups, "Ambullence"):
-		global.speed_bubble *= 0.1
+		global.speed_bubble *= 0.2
 	
 
 func _process(delta: float) -> void:

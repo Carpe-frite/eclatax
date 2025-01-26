@@ -139,7 +139,7 @@ var elephant_speed ##The elephant's speed
 var elephant_bubble_count ##The number of bubbles shot per space press
 var elephant_angle ##The elephant's trunk angle
 var elephant_angle_range ##The max angle at which the elephant's trunk can rotate
-var elephant_powerups = ["Ambullence"] ##Lists the powerups acquired by the elephant
+var elephant_powerups = [] ##Lists the powerups acquired by the elephant
 var elephant_luck = 1
 
 var surpobullation = {"name" : "surpobullation", "weight" : 10, "desc" : "Bulles par tir +1" , "image" : "res://Assets/Bonus/Surpobullation.png", "effect" : 0}
@@ -151,7 +151,7 @@ var elephant_effects_array = [surpobullation, nebulleuse, probullession]
 # Bee attributes
 var bee_speed
 var bee_size
-var bee_powerups = ["Hypothepique","Automapique"] # Powerups acquired by the bee
+var bee_powerups = [] # Powerups acquired by the bee
 var bee_luck = 1
 var bee_x = 960
 var bee_y = 360
