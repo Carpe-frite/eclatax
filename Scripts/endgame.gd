@@ -4,4 +4,7 @@ extends Node2D
 @onready var victory_label = get_node("VictoryLabel")
 
 func _ready() -> void:
-	pass
+	if global.elephant_won:
+		victory_label.text += "l'elephant !"
+	else:
+		victory_label.text += "l'abeille !"

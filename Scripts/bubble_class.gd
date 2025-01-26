@@ -24,7 +24,7 @@ func bubbles_go_up(delta):
 			else:
 				global.elephant_won = true
 				global.continue_level_music_at = levelMusic.get_playback_position()  + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
-				self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
+				self.get_parent().get_tree().change_scene_to_file("res://endgame.tscn")
 
 func _ready() -> void:
 	pass
