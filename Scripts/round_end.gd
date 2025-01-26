@@ -141,13 +141,16 @@ func _on_first_bonus_pressed() -> void:
 	print("1")
 	elephant_second_bonus.visible = false
 	elephant_third_bonus.visible = false
+	global.bee_powerups.append(selected_bee_array[0]["name"])
 
 func _on_second_bonus_pressed() -> void:
 	print("2")
 	elephant_first_bonus.visible = false
 	elephant_third_bonus.visible = false
+	global.bee_powerups.append(selected_bee_array[1]["name"])
 
 func _on_third_bonus_pressed() -> void:
 	print("3")
 	elephant_second_bonus.visible = false
 	elephant_first_bonus.visible = false
+	global.bee_powerups.append(selected_bee_array[2]["name"])
