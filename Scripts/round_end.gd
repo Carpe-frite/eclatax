@@ -22,6 +22,7 @@ func _ready() -> void:
 		global.round_number += 1
 		global.bubble_array = []
 		global.bubble_id = 0
+		var elephant_x = 960
 		next_round_button.text = "Commencer le round " + str(global.round_number)
 	else:
 		self.get_parent().get_tree().change_scene_to_file("res://endgame.tscn")

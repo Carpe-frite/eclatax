@@ -12,15 +12,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time_left_label.text = str(int(timer.get_time_left()))
-	if global.is_bubble_selected == true:
-		if Input.is_action_just_released("ui_mouse_LeftClick"):
-			bubblePopSoundPlayer.stream = global.bubblePopSounds[randi() % 12]
-			bubblePopSoundPlayer.play()
-			global.destroy_bubble(global.bubble_array[global.currently_selected_bubble_id])
-			if global.checkIfAcquired(global.elephant_powerups, "Exbullession"):
-				var border_spacing = 50
-				global.bee_x = randi_range(border_spacing, 1920-border_spacing)
-				global.bee_y = randi_range(border_spacing, 1080-border_spacing)
+	#if global.is_bubble_selected == true:
+	if Input.is_action_just_released("ui_mouse_LeftClick"):
+		bubblePopSoundPlayer.stream = global.bubblePopSounds[randi() % 12]
+		bubblePopSoundPlayer.play()
+		for x in global.currently_selected_bubble_ids:
+			global.destroy_bubble(global.bubble_array[x])
+			#if global.checkIfAcquired(global.elephant_powerups, "Exbullession"):
+				#var border_spacing = 50
+				#global.bee_x = randi_range(border_spacing, 1920-border_spacing)
+				#global.bee_y = randi_range(border_spacing, 1080-border_spacing)
 
 	
 func _on_round_timer_timeout() -> void:
