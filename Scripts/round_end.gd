@@ -22,22 +22,30 @@ func three_boni():
 	for x in global.elephant_effects_array:
 		total_weights = total_weights + x["weight"]
 	while selected_array.size() < 4:
+		var random_value = rng.randi_range(0,total_weights)
+		var selected_bonus
+		var cumulated_weights = 0
 		for x in global.elephant_effects_array:
-			var random_value = rng.randi_range(0,total_weights)
-			if x["weight"] <= random_value:
-				selected_array.append(x)
+			if cumulated_weights <= random_value:
+				cumulated_weights += x["weight"]
+				selected_bonus = x
 			else:
-				pass
+				break
+		selected_array.append(selected_bonus)
 	total_weights = 0
 	for y in global.bee_effects_array:
 		total_weights = total_weights + y["weight"]
 	while selected_bee_array.size() < 4:
-		for y in global.bee_effects_array:
-			var random_value = rng.randi_range(0,total_weights)
-			if y["weight"] <= random_value:
-				selected_bee_array.append(y)
+		var random_value = rng.randi_range(0,total_weights)
+		var selected_bonus
+		var cumulated_weights = 0
+		for x in global.bee_effects_array:
+			if cumulated_weights <= random_value:
+				cumulated_weights += x["weight"]
+				selected_bonus = x
 			else:
-				pass
+				break
+		selected_bee_array.append(selected_bonus)
 
 @onready var levelMusic = get_node("LevelMusicPlayer")
 @onready var roundEndSound = get_node("RoundEndSound")
@@ -48,16 +56,10 @@ func _ready() -> void:
 	levelMusic.play(global.continue_level_music_at + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency())
 
 	if global.round_number < 5:
-		global.bee_powerups = []
-		global.elephant_powerups = []
 		three_boni()
 		elephant_first_bonus.grab_focus()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		round_end_title.text = "Fin du round " + str(global.round_number)
-		if global.elephant_won == true:
-			victory_label.text = "L'éléphant remporte le round !"
-		else:
-			victory_label.text = "L'abeille remporte le round !"
 		
 		global.round_number += 1
 		global.bubble_array = []
@@ -146,81 +148,31 @@ func _on_next_round_button_button_up() -> void:
 	self.get_parent().get_tree().change_scene_to_file("res://world.tscn")
 
 func _on_first_bonus_button_up() -> void:
-	match selected_array[0]["effect"]:
-		0: #surpobullation
-			global.elephant_powerups.append("Surpobullation")
-		1: #nebulleuse
-			global.elephant_powerups.append("Nebulleuse")
-		3: #deambulle
-			global.elephant_powerups.append("Deambulle")
-		4: #deambulle
-			global.elephant_powerups.append("Probabullite")
+	global.elephant_powerups.append(selected_array[0]["name"])
 
 func _on_first_bee_bonus_button_up() -> void:
+	global.bee_powerups.append(selected_bee_array[0]["name"])
 	bee_second_bonus.visible = false
 	bee_third_bonus.visible = false
-	match selected_bee_array[0]["effect"]:
-		0: 
-			global.bee_powerups.append("Piquenique")
-		1: 
-			global.bee_powerups.append("Cripique")
-		2: #Piquantesque
-			global.bee_powerups.append("Piquantesque")
-		3: #nebulleuse
-			global.bee_powerups.append("Precipiquation")
-		4: #flegmapqie
-			global.bee_powerups.append("Flegmapique")
 
 
 func _on_second_bonus_button_up() -> void:
-	match selected_array[1]["effect"]:
-		0: #surpobullation
-			global.elephant_powerups.append("Surpobullation")
-		1: #nebulleuse
-			global.elephant_powerups.append("Nebulleuse")
-		3: #deambulle
-			global.elephant_powerups.append("Deambulle")
+	global.elephant_powerups.append(selected_array[1]["name"])
 
 func _on_third_bonus_button_up() -> void:
-	match selected_array[2]["effect"]:
-		0: #surpobullation
-			global.elephant_powerups.append("Surpobullation")
-		1: #nebulleuse
-			global.elephant_powerups.append("Nebulleuse")
-		3: #deambulle
-			global.elephant_powerups.append("Deambulle")
-			print(global.elephant_powerups)
+	global.elephant_powerups.append(selected_array[2]["name"])
 
 func _on_second_bee_bonus_button_up() -> void:
+	global.bee_powerups.append(selected_bee_array[1]["name"])
 	bee_first_bonus.visible = false
 	bee_third_bonus.visible = false
-	match selected_bee_array[1]["effect"]:
-		0: 
-			global.bee_powerups.append("Piquenique")
-		1: 
-			global.bee_powerups.append("Cripique")
-		2: #Piquantesque
-			global.bee_powerups.append("Piquantesque")
-		3: #nebulleuse
-			global.bee_powerups.append("Precipiquation")
-		4: #flegmapqie
-			global.bee_powerups.append("Flegmapique")
 
 
 func _on_third_bee_bonus_button_up() -> void:
+	global.bee_powerups.append(selected_bee_array[2]["name"])
 	bee_first_bonus.visible = false
 	bee_second_bonus.visible = false
-	match selected_bee_array[2]["effect"]:
-		0: 
-			global.bee_powerups.append("Piquenique")
-		1: 
-			global.bee_powerups.append("Cripique")
-		2: #Piquantesque
-			global.bee_powerups.append("Piquantesque")
-		3: #nebulleuse
-			global.bee_powerups.append("Precipiquation")
-		4: #flegmapqie
-			global.bee_powerups.append("Flegmapique")
+
 
 
 func _on_first_bonus_pressed() -> void:
