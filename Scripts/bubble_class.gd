@@ -18,11 +18,11 @@ func bubbles_go_up(delta):
 		x.bubble_instance.set_global_position(Vector2(x.bubble_properties["x"],x.bubble_properties["y"]))
 		if x.bubble_properties["y"] < 100 and x.bubble_properties["is_alive"] == true:
 			global.destroy_bubble(x)
-			global.elephant_won = true
 			
 			if global.checkIfAcquired(global.bee_powerups, "Cripique") and global.bee_cripique_active:
 				global.bee_cripique_active = false
 			else:
+				global.elephant_won = true
 				global.continue_level_music_at = levelMusic.get_playback_position()  + AudioServer.get_time_since_last_mix() + AudioServer.get_output_latency()
 				self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
 

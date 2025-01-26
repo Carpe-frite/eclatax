@@ -26,10 +26,11 @@ func _ready() -> void:
 	if global.checkIfAcquired(global.bee_powerups, "Frenepique"):
 		global.bee_size *= 0.7
 		global.bee_speed *= 3
-	if global.checkIfAcquired(global.bee_powerups, "Flegmapique"):
-		global.speed_bubble *= 0.5
 	if global.checkIfAcquired(global.bee_powerups, "Expiqueration"):
 		global.timer *= 0.9
+	if global.checkIfAcquired(global.bee_powerups, "Hypothepique"):
+		global.bee_luck *= 2
+	
 	
 	
 
