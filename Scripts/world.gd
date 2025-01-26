@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 			bubblePopSoundPlayer.play()
 			
 		for x in global.currently_selected_bubble_ids:
+			global.currently_selected_bubble_ids.erase(x)
 			global.destroy_bubble(global.bubble_array[x])
 			##Exbullession
 			if global.checkIfAcquired(global.elephant_powerups, "Exbullession") and global.probability(global.ExbullesionProb, global.elephant_luck):

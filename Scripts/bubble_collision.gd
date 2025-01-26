@@ -14,12 +14,13 @@ func set_id(val):
 	id = val
 
 func _on_character_body_2d_area_entered(area: Area2D) -> void:
-	if global.checkIfAcquired(global.bee_powerups, "Automapique") and global.probability(global.AutomapiqueProb, global.bee_luck):
-		global.destroy_bubble(global.bubble_array[id])
-	else:
-		global.is_bubble_selected = true
-		#global.currently_selected_bubble_id = id
-		global.currently_selected_bubble_ids.append(id)
+	if global.bubble_array[id].bubble_properties["is_alive"]:
+		if global.checkIfAcquired(global.bee_powerups, "Automapique") and global.probability(global.AutomapiqueProb, global.bee_luck):
+			global.destroy_bubble(global.bubble_array[id])
+		else:
+			global.is_bubble_selected = true
+			#global.currently_selected_bubble_id = id
+			global.currently_selected_bubble_ids.append(id)
 	
 
 func _on_character_body_2d_area_exited(area: Area2D) -> void:
