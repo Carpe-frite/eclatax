@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://brafcn0mjuhsh"]
+[gd_scene load_steps=20 format=3 uid="uid://brafcn0mjuhsh"]
 
 [ext_resource type="Texture2D" uid="uid://dsu7mlrx8le13" path="res://Assets/temporaire/sol.png" id="1_5kprh"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_sx4co"]
+[ext_resource type="AudioStream" uid="uid://diu2805n814yg" path="res://Assets/Sound/ECLATAX_no_kazoo.wav" id="2_c4dnt"]
 [ext_resource type="FontFile" uid="uid://ben1aoki60x1n" path="res://Fonts/timesbd.ttf" id="2_hc203"]
 [ext_resource type="Texture2D" uid="uid://bdbbnr4c5n58b" path="res://Assets/elephant_01.png" id="3_5kkhd"]
 [ext_resource type="Texture2D" uid="uid://c1dylrrrjpu2m" path="res://Assets/background.png" id="3_jc4hw"]
@@ -64,6 +65,11 @@ animations = [{
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sx4co")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="secretEclatax" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("2_c4dnt")
 
 [node name="UI" type="Control" parent="."]
 z_index = 1

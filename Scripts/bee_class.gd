@@ -6,6 +6,7 @@ extends Node2D
 
 # Global
 var delta_time = 1
+var previous_direction = 0 # 1 for right, -1 for left
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,12 +30,14 @@ func _process(delta: float) -> void:
 	delta_time = delta
 	
 	set_bee_size(global.bee_size)
-	# set_bee_speed()
 	
 	animated_bee.play("default")
 
+	set_bee_direction()
+
 # Called whenever there is an input event
 func _input(event):
+
 	var border_spacing = 50
 	bee.position.x = global.bee_x
 	bee.position.y = global.bee_y
@@ -49,6 +52,10 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		global.bee_x += event.relative.x * global.bee_speed * delta_time
 		global.bee_y += event.relative.y * global.bee_speed * delta_time
+		if event.relative.x > 0:
+			previous_direction = 1
+		elif event.relative.x < 0:
+			previous_direction = -1
 
 # Setters
 func set_bee_size(new_size):
@@ -56,3 +63,10 @@ func set_bee_size(new_size):
 
 func set_bee_speed(new_speed):
 	global.bee_speed = new_speed
+
+# Utils
+func set_bee_direction():
+	if previous_direction != 1:
+		animated_bee.scale.x = abs(animated_bee.scale.x)  # Face right
+	elif previous_direction != -1:
+		animated_bee.scale.x = -abs(animated_bee.scale.x)  # Face left

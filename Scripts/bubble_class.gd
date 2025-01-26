@@ -8,7 +8,7 @@ func bubble_action():
 			global.bubble_id += 1
 			if global.checkIfAcquired(global.bee_powerups, "Compiquation"):
 				global.bee_speed *= 1.05
-	
+	print(self.get_child_count())
 		
 func bubbles_go_up(delta):
 	for x in global.bubble_array:
@@ -18,7 +18,7 @@ func bubbles_go_up(delta):
 			global.destroy_bubble(x)
 			global.elephant_won = true
 			self.get_parent().get_tree().change_scene_to_file("res://round_end.tscn")
-			
+			break
 
 func _ready() -> void:
 	pass

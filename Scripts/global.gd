@@ -8,6 +8,9 @@ var bee_rounds_won = 0
 
 var continue_music_at
 
+#Bonus effects
+
+
 ##Consts for probabilities:
 const ExbullesionProb = 15
 const NebulleuseProb = 10
@@ -23,8 +26,13 @@ var elephant_bubble_count = 1 ##The number of bubbles shot per space press
 var elephant_angle = 90 ##The elephant's trunk angle
 var elephant_angle_range = 0 ##The max angle at which the elephant's trunk can rotate
 var elephant_powerups = ["Exbullession"] ##Lists the powerups acquired by the elephant
-var elephant_luck = 1
 
+var surpobullation = {"name" : "surpobullation", "weight" : 10, "desc" : "Bulles par tir +1" , "image" : "res://Assets/Bonus/Surpobullation.png", "effect" : 0}
+var nebulleuse = {"name" : "nébulleuse", "weight" : 10, "desc" : "Bulle éclatée, 10% de chances: Crée 5 bulles autour" , "image" : "res://Assets/Bonus/Nebulleuse.png", "effect" : 1}
+var probullession = {"name" : "Probullession", "weight" : 20, "desc" : "Vitesse des bulles +33%" , "image" : "res://Assets/Bonus/Probullession.png", "effect" : 2}
+
+var elephant_effects_array = [surpobullation, nebulleuse, probullession]
+var elephant_luck = 1
 
 # Bee attributes
 var bee_speed = 20 # Default 15
@@ -39,7 +47,7 @@ var currently_selected_bubble_id
 var currently_selected_bubble_ids = []
 var bubble_array = []
 var speed_bubble = 200
-var timer = 60
+var timer = 5
 
 var is_bubble_selected
 

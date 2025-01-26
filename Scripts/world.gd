@@ -3,6 +3,10 @@ extends Node2D
 @onready var timer = get_node("RoundTimer")
 @onready var time_left_label = get_node("UI/TimeLeftLabel")
 
+#AUDIO
+
+@onready var secret_eclatax = get_node("Audio/secretEclatax")
+
 
 #CLASSES
 func _ready() -> void:
@@ -10,6 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time_left_label.text = str(int(timer.get_time_left()))
+	
 	#if global.is_bubble_selected == true:
 	if Input.is_action_just_released("ui_mouse_LeftClick"):
 		for x in global.currently_selected_bubble_ids:
@@ -18,6 +23,9 @@ func _process(delta: float) -> void:
 				#var border_spacing = 50
 				#global.bee_x = randi_range(border_spacing, 1920-border_spacing)
 				#global.bee_y = randi_range(border_spacing, 1080-border_spacing)
+				
+	if Input.is_action_just_released("ui_kb_x"):
+		secret_eclatax.play()
 
 	
 func _on_round_timer_timeout() -> void:
