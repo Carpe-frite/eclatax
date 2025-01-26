@@ -14,7 +14,7 @@ var banques = [
 	"boite à musique",
 	"xylo",
 	"banjo",
-	"guimbarde"
+	"kazoo"
 ]
 
 const MAX_PLAYERS = 10
@@ -47,11 +47,14 @@ func _process(delta: float) -> void:
 	
 	#if global.is_bubble_selected == true:
 	if Input.is_action_just_released("ui_mouse_LeftClick"):
-		for x in global.currently_selected_bubble_ids:
-			play_note(global.get_random_note(chordArray, chordToPlay))
-
+		if global.currently_selected_bubble_ids.size() > 0:
+			var sound_one = global.get_random_note(chordArray, chordToPlay)
+			play_note(sound_one)
+			
 			bubblePopSoundPlayer.stream = global.bubblePopSounds[randi() % 12]
 			bubblePopSoundPlayer.play()
+			
+		for x in global.currently_selected_bubble_ids:
 			global.destroy_bubble(global.bubble_array[x])
 			##Exbullession
 			if global.checkIfAcquired(global.elephant_powerups, "Exbullession") and global.probability(global.ExbullesionProb, global.elephant_luck):
