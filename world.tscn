@@ -115,7 +115,7 @@ position = Vector2(960, 360)
 script = ExtResource("5_jn1vc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Monde/acteurs/bee"]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_808rs")
 frame_progress = 0.100875
 
@@ -124,7 +124,7 @@ scale = Vector2(10, 10)
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Monde/acteurs/bee/AnimatedSprite2D/Area2D"]
-polygon = PackedVector2Array(-88, 24, -56, -24, 56, -24, 96, 40, 32, 80, -40, 80)
+polygon = PackedVector2Array(-80, 26, -56, -22, 0, -34, 54, -22, 88, 36, 40, 76, -46, 72)
 
 [node name="bubble_generator" type="Node2D" parent="Monde/acteurs"]
 script = ExtResource("5_3vg7t")
